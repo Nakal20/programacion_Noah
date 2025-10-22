@@ -13,6 +13,7 @@ public class Tema2Ejercicio28 {
         int randomInt = random.nextInt(99999);
         System.out.println(randomInt);
 
+        //cambia mirando bien el enunciado y quitando el if vacío
         do {
             if (num == randomInt){
             }else {

@@ -7,20 +7,23 @@ public class Tema2Ejercicio26 {
         System.out.println("Dime un numero");
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
+        int contador = 0;
 
         if (num <= 1) {
             System.out.println("no es primo");
         } else {
-            for (int i = 4; i < 5; i++) {
+            //cambiar el for
+            for (int i = 2; i < num -1 ; i++) {
+
                 if (num % i == 0){
-                    System.out.println("no es primo");
-
-                }
-                else{
-                    System.out.println("es primo");
-
+                    contador++;
                 }
             }
+        }
+        if (contador == 0){
+            System.out.println("es primo");
+        }else {
+            System.out.println("No es primo");
         }
 
     }

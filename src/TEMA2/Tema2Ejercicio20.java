@@ -13,9 +13,7 @@ public class Tema2Ejercicio20 {
         if (b > a) {
             if (a % 2 == 0) {
                 a++;
-                for (int i = a; i <= b; i = i+2) {
-                    System.out.println(i);
-                }
+                //este for te sobra
             }
             for (int i = a; i <= b; i = i+2) {
                 System.out.println(i);

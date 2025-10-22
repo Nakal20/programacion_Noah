@@ -5,16 +5,13 @@ import java.util.Scanner;
 public class Tema2Ejercicio27 {
     public static void main(String[] args) {
         int num = 2;
+        int contador = 0;
+//usar un contadorDePrimos que debe llegar hasta  que encuentre 20 primos
+        for (int i = 2; contador < 20; i++) {
 
-        for (int i = 1; i < 72 ; i++) {
-            if (num == 2 || num == 3 || num == 5){
-                System.out.println(num);
-            }
-            else if (num % 4 == 0 || num % 6 == 0 || num % 15 == 0){
-
-            }
-            else if (num % 2 != 0 ) {
-                System.out.println(num);
+            if (num % i == 0){
+                contador++;
+                System.out.println(i);
             }
             num++;
         }

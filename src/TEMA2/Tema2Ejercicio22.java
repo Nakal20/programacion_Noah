@@ -9,10 +9,13 @@ public class Tema2Ejercicio22 {
         int num = in.nextInt();
         int contador=0;
 
-        do{
+        //while
+        //si probamos con 100, no lo cuenta bien
+
+        while (num>=10){
             num=num/10;
             contador++;
-        }while (num>10);
+        }
         if (num != 0){
             contador++;
         }

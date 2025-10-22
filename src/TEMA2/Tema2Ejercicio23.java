@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class Tema2Ejercicio23 {
     public static void main(String[] args) {
-        System.out.println("Dime un numero");
+
         Scanner in = new Scanner(System.in);
-        int num = in.nextInt();
-        int media=0;
+        int num; //= in.nextInt();
+        int media;
         int contador=0;
         int resultado = 0;
 
         do{
-            System.out.println("Dime otro");
+            System.out.println("Dime un numero");
             num = in.nextInt();
             contador++;
             resultado = resultado + num;
