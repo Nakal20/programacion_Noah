@@ -1,5 +1,7 @@
 package TEMA2;
 
+
+import java.util.Random;
 import java.util.Scanner;
 
 public class Tema2ejercicio_combate {
@@ -15,12 +17,21 @@ public class Tema2ejercicio_combate {
         int ata1;
         int def1;
         int vida1;
+        int vidamax1;
+        int ataque1;
 
         int total2;
         int vel2;
         int ata2;
         int def2;
         int vida2;
+        int vidamax2;
+        int ataque2;
+
+        Random random = new Random();
+        int masataque = random.nextInt(10);
+
+        //Elecion de estadisticas
         do {
             System.out.println("--jugador1--");
 
@@ -65,10 +76,10 @@ public class Tema2ejercicio_combate {
             System.out.println("----------------------------------------------------");
             System.out.println("velocidad: " + vel1 + "\n" + "ataque: " + ata1 + "\n" + "defensa: " + def1 + "\n" + "vida: " + vida1);
 
-            if (total1 > 500){
+            if (total1 > 500) {
                 System.out.println("te has pasado de 500 vuelve ha poner los valores");
             }
-        }while (total1 > 500);
+        } while (total1 > 500);
 
         do {
             System.out.println("----------------------------------------------------");
@@ -113,14 +124,103 @@ public class Tema2ejercicio_combate {
             total2 = vel2 + ata2 + def2 + vida2;
 
             System.out.println("----------------------------------------------------");
-            System.out.println("velocidad: " + vel1 + "\n" + "ataque: " + ata1 + "\n" + "defensa: " + def1 + "\n" + "vida: " + vida1);
+            System.out.println("velocidad: " + vel2 + "\n" + "ataque: " + ata2 + "\n" + "defensa: " + def2 + "\n" + "vida: " + vida2);
 
-            if (total2 > 500){
+            if (total2 > 500) {
                 System.out.println("te has pasado de 500 vuelve ha poner los valores");
             }
-        }while (total2 > 500);
+        } while (total2 > 500);
+        vidamax1 = vida1;
+        vidamax2 = vida2;
 
-        while (vel1 > vel2){
+        //combate
+        // si jugaror 1 es mas rapido que jugador 2
+        if (vel1 > vel2) {
+            while (vida1 > 0 && vida2 > 0) {
+
+                if (vida1 > 0) {
+                    masataque = random.nextInt(10);
+                    ataque1 = ata1 - def2 + masataque;
+                    vida2 = vida2 - ataque1;
+                    if (vida2 < 0) {
+                        vida2 = 0;
+                    }
+                } else {
+                    ataque1 = 0;
+                }
+
+                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+
+
+                if (vida2 > 0) {
+                    masataque = random.nextInt(10);
+                    ataque2 = ata1 - def2 + masataque;
+                    vida1 = vida1 - ataque2;
+                    if (vida1 < 0) {
+                        vida1 = 0;
+                    }
+                } else {
+                    ataque2 = 0;
+                }
+
+                System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+
+                if (vida1 >= 0 || vida2 >= 0) {
+                    System.out.println("vida jugador1 " + vida1 + "/" + vidamax1 + "\n");
+                    System.out.println("vida jugador2 " + vida2 + "/" + vidamax2 + "\n");
+                } else {
+                    vida1 = 0;
+                    vida2 = 0;
+                    System.out.println("vida jugador1 " + vida1 + "/" + vidamax1 + "\n");
+                    System.out.println("vida jugador2 " + vida2 + "/" + vidamax2 + "\n");
+                }
+
+            }
+
+        }
+
+        // si jugaror 2 es mas rapido que jugador 1
+
+        if (vel2 > vel1) {
+            while (vida2 > 0 && vida1 > 0) {
+
+                if (vida2 > 0) {
+                    masataque = random.nextInt(10);
+                    ataque2 = ata1 - def2 + masataque;
+                    vida1 = vida1 - ataque2;
+                    if (vida1 < 0) {
+                        vida1 = 0;
+                    }
+                } else {
+                    ataque2 = 0;
+                }
+
+                System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+
+                if (vida1 > 0) {
+                    masataque = random.nextInt(10);
+                    ataque1 = ata1 - def2 + masataque;
+                    vida2 = vida2 - ataque1;
+                    if (vida2 < 0) {
+                        vida2 = 0;
+                    }
+                } else {
+                    ataque1 = 0;
+                }
+
+                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+
+                if (vida2 >= 0 || vida1 >= 0) {
+                    System.out.println("vida jugador1 " + vida1 + "/" + vidamax1 + "\n");
+                    System.out.println("vida jugador2 " + vida2 + "/" + vidamax2 + "\n");
+                } else {
+                    vida1 = 0;
+                    vida2 = 0;
+                    System.out.println("vida jugador1 " + vida1 + "/" + vidamax1 + "\n");
+                    System.out.println("vida jugador2 " + vida2 + "/" + vidamax2 + "\n");
+                }
+
+            }
 
         }
     }

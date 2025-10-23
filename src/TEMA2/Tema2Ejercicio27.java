@@ -20,7 +20,6 @@ public class Tema2Ejercicio27 {
                 contadorp++;
             }
             num++;
-
         }
     }
 }
