@@ -88,7 +88,6 @@ public class Tema2Ejercicio30 {
                     break;
             }
         } while (operacion != 's');
-        System.out.println("Estas fuera");
     }
 }
 
