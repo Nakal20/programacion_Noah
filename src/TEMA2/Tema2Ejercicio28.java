@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Tema2Ejercicio28 {
     public static void main(String[] args) {
-        System.out.println("Dime un numero de 5 cifras");
+        System.out.println("Dime un numero");
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
 
@@ -14,14 +14,16 @@ public class Tema2Ejercicio28 {
         System.out.println(randomInt);
 
         //cambia mirando bien el enunciado y quitando el if vacío
-        do {
-            if (num == randomInt){
-            }else {
-                System.out.println("has fallado");
-                System.out.println("Dime otro");
-                num = in.nextInt();
-            }
-        }while (num != randomInt);
-        System.out.println("has acertado");
+        for (int i = 0; i < 5; i++) {
+                if (num == randomInt) {
+                    System.out.println("has acertado");
+                    i=5;
+                } else {
+                    System.out.println("has fallado");
+                    System.out.println("Dime otro");
+                    num = in.nextInt();
+                }
+
+        }
     }
 }
