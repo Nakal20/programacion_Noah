@@ -11,7 +11,7 @@ public class Tema2ejercicio_combate {
         System.out.println("----COMBATE----");
         System.out.println("----REGLAS----");
         System.out.println("La suma de los atributos de un jugador no podrá ser superior a 500. Cada uno de los atributos debe tener un valor entre 1 y 200");
-
+//estadisticas jugador1
         int total1;
         int vel1;
         int ata1;
@@ -19,7 +19,7 @@ public class Tema2ejercicio_combate {
         int vida1;
         int vidamax1;
         int ataque1;
-
+//estadisticas jugador2
         int total2;
         int vel2;
         int ata2;
@@ -29,7 +29,14 @@ public class Tema2ejercicio_combate {
         int ataque2;
 
         Random random = new Random();
-        int masataque = random.nextInt(10);
+        int masataque;
+        int ronda = 0;
+        int decision;
+//para poder crear la barra de vida
+        int totalBarras1;
+        int totalBarras2;
+        int barras1;
+        int barras2;
 
         //Elecion de estadisticas
         do {
@@ -137,6 +144,9 @@ public class Tema2ejercicio_combate {
         // si jugaror 1 es mas rapido que jugador 2
         if (vel1 > vel2) {
             while (vida1 > 0 && vida2 > 0) {
+                
+                ronda++;
+                System.out.println("------Ronda:" + ronda + "------");
 
                 if (vida1 > 0) {
                     masataque = random.nextInt(10);
@@ -166,13 +176,30 @@ public class Tema2ejercicio_combate {
                 System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
 
                 if (vida1 >= 0 || vida2 >= 0) {
-                    System.out.println("vida jugador1 " + vida1 + "/" + vidamax1 + "\n");
-                    System.out.println("vida jugador2 " + vida2 + "/" + vidamax2 + "\n");
+                    totalBarras1 = vidamax1/10;
+                    totalBarras2 = vidamax2/10;
+                    barras1 = vida1 / 10;
+                    barras2 = vida2 / 10;
+
+                    String barra1 = "";
+                    String barra2 = "";
+
+                    for (int i = 0; i < barras1; i++) barra1 += "/";
+                    for (int i = barras1; i < totalBarras1; i++) barra1 += " ";
+
+                    for (int i = 0; i < barras2; i++) barra2 += "/";
+                    for (int i = barras2; i < totalBarras2; i++) barra2 += " ";
+
+                    System.out.println("Jugador 1 [" + barra1 + "] " + vida1 + "/" + vidamax1);
+                    System.out.println("Jugador 2 [" + barra2 + "] " + vida2 + "/" + vidamax2);
+                    System.out.println("--------------------------------------------\n");
+
                 } else {
                     vida1 = 0;
                     vida2 = 0;
-                    System.out.println("vida jugador1 " + vida1 + "/" + vidamax1 + "\n");
-                    System.out.println("vida jugador2 " + vida2 + "/" + vidamax2 + "\n");
+                    System.out.println("Jugador 1 [] " + vida1 + "/" + vidamax1);
+                    System.out.println("Jugador 2 [] " + vida2 + "/" + vidamax2);
+                    System.out.println("--------------------------------------------\n");
                 }
 
             }
@@ -183,6 +210,9 @@ public class Tema2ejercicio_combate {
 
         if (vel2 > vel1) {
             while (vida2 > 0 && vida1 > 0) {
+
+                ronda++;
+                System.out.println("------Ronda:" + ronda + "------");
 
                 if (vida2 > 0) {
                     masataque = random.nextInt(10);
@@ -211,13 +241,165 @@ public class Tema2ejercicio_combate {
                 System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
 
                 if (vida2 >= 0 || vida1 >= 0) {
-                    System.out.println("vida jugador1 " + vida1 + "/" + vidamax1 + "\n");
-                    System.out.println("vida jugador2 " + vida2 + "/" + vidamax2 + "\n");
+                    totalBarras1 = vidamax1/10;
+                    totalBarras2 = vidamax2/10;
+                    barras1 = vida1 / 10;
+                    barras2 = vida2 / 10;
+
+                    String barra1 = "";
+                    String barra2 = "";
+
+                    for (int i = 0; i < barras1; i++) barra1 += "/";
+                    for (int i = barras1; i < totalBarras1; i++) barra1 += " ";
+
+                    for (int i = 0; i < barras2; i++) barra2 += "/";
+                    for (int i = barras2; i < totalBarras2; i++) barra2 += " ";
+
+                    System.out.println("Jugador 1 [" + barra1 + "] " + vida1 + "/" + vidamax1);
+                    System.out.println("Jugador 2 [" + barra2 + "] " + vida2 + "/" + vidamax2);
+                    System.out.println("--------------------------------------------\n");
+
                 } else {
                     vida1 = 0;
                     vida2 = 0;
-                    System.out.println("vida jugador1 " + vida1 + "/" + vidamax1 + "\n");
-                    System.out.println("vida jugador2 " + vida2 + "/" + vidamax2 + "\n");
+                    System.out.println("Jugador 1 [] " + vida1 + "/" + vidamax1);
+                    System.out.println("Jugador 2 [] " + vida2 + "/" + vidamax2);
+                    System.out.println("--------------------------------------------\n");
+                }
+
+            }
+
+        }
+        // si los jugadores tienen la misma velocidad
+        if (vel1 == vel2) {
+            //elige un numero con random para decidir quien va antes
+            decision = random.nextInt(2)+1;
+
+            if (decision == 1) {
+                while (vida1 > 0 && vida2 > 0) {
+
+                    ronda++;
+                    System.out.println("------Ronda:" + ronda + "------");
+
+                    if (vida1 > 0) {
+                        masataque = random.nextInt(10);
+                        ataque1 = ata1 - def2 + masataque;
+                        vida2 = vida2 - ataque1;
+                        if (vida2 < 0) {
+                            vida2 = 0;
+                        }
+                    } else {
+                        ataque1 = 0;
+                    }
+
+                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+
+
+                    if (vida2 > 0) {
+                        masataque = random.nextInt(10);
+                        ataque2 = ata1 - def2 + masataque;
+                        vida1 = vida1 - ataque2;
+                        if (vida1 < 0) {
+                            vida1 = 0;
+                        }
+                    } else {
+                        ataque2 = 0;
+                    }
+
+                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+
+                    if (vida1 >= 0 || vida2 >= 0) {
+                        totalBarras1 = vidamax1/10;
+                        totalBarras2 = vidamax2/10;
+                        barras1 = vida1 / 10;
+                        barras2 = vida2 / 10;
+
+                        String barra1 = "";
+                        String barra2 = "";
+
+                        for (int i = 0; i < barras1; i++) barra1 += "/";
+                        for (int i = barras1; i < totalBarras1; i++) barra1 += " ";
+
+                        for (int i = 0; i < barras2; i++) barra2 += "/";
+                        for (int i = barras2; i < totalBarras2; i++) barra2 += " ";
+
+                        System.out.println("Jugador 1 [" + barra1 + "] " + vida1 + "/" + vidamax1);
+                        System.out.println("Jugador 2 [" + barra2 + "] " + vida2 + "/" + vidamax2);
+                        System.out.println("--------------------------------------------\n");
+
+                    } else {
+                        vida1 = 0;
+                        vida2 = 0;
+                        System.out.println("Jugador 1 [] " + vida1 + "/" + vidamax1);
+                        System.out.println("Jugador 2 [] " + vida2 + "/" + vidamax2);
+                        System.out.println("--------------------------------------------\n");
+                    }
+
+                }
+
+            }
+
+            // si jugaror 2 es mas rapido que jugador 1
+
+            if (decision == 2) {
+                while (vida2 > 0 && vida1 > 0) {
+
+                    ronda++;
+                    System.out.println("------Ronda:" + ronda + "------");
+
+                    if (vida2 > 0) {
+                        masataque = random.nextInt(10);
+                        ataque2 = ata1 - def2 + masataque;
+                        vida1 = vida1 - ataque2;
+                        if (vida1 < 0) {
+                            vida1 = 0;
+                        }
+                    } else {
+                        ataque2 = 0;
+                    }
+
+                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+
+                    if (vida1 > 0) {
+                        masataque = random.nextInt(10);
+                        ataque1 = ata1 - def2 + masataque;
+                        vida2 = vida2 - ataque1;
+                        if (vida2 < 0) {
+                            vida2 = 0;
+                        }
+                    } else {
+                        ataque1 = 0;
+                    }
+
+                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+
+                    if (vida2 >= 0 || vida1 >= 0) {
+                        totalBarras1 = vidamax1/10;
+                        totalBarras2 = vidamax2/10;
+                        barras1 = vida1 / 10;
+                        barras2 = vida2 / 10;
+
+                        String barra1 = "";
+                        String barra2 = "";
+
+                        for (int i = 0; i < barras1; i++) barra1 += "/";
+                        for (int i = barras1; i < totalBarras1; i++) barra1 += " ";
+
+                        for (int i = 0; i < barras2; i++) barra2 += "/";
+                        for (int i = barras2; i < totalBarras2; i++) barra2 += " ";
+
+                        System.out.println("Jugador 1 [" + barra1 + "] " + vida1 + "/" + vidamax1);
+                        System.out.println("Jugador 2 [" + barra2 + "] " + vida2 + "/" + vidamax2);
+                        System.out.println("--------------------------------------------\n");
+
+                    } else {
+                        vida1 = 0;
+                        vida2 = 0;
+                        System.out.println("Jugador 1 [] " + vida1 + "/" + vidamax1);
+                        System.out.println("Jugador 2 [] " + vida2 + "/" + vidamax2);
+                        System.out.println("--------------------------------------------\n");
+                    }
+
                 }
 
             }
