@@ -12,7 +12,7 @@ public class Tema2Ejercicio27 {
             for (int i = 2; i < num; i++) {
                 if (num % i == 0) {
                     contador++;
-                    break;
+
                 }
             }
             if (contador == 0) {

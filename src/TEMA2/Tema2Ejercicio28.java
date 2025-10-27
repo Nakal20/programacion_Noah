@@ -17,7 +17,7 @@ public class Tema2Ejercicio28 {
         for (int i = 0; i < 5; i++) {
                 if (num == randomInt) {
                     System.out.println("has acertado");
-                    i=5;
+                    //i=5;
                 } else {
                     System.out.println("has fallado");
                     System.out.println("Dime otro");
