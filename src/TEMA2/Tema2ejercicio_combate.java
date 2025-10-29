@@ -155,7 +155,7 @@ public class Tema2ejercicio_combate {
                                 if (ataque1 < 0) {
                                     ataque1 = masataque;
                                     System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
-                                    ataque1 = ata1 - def2 + masataque + critico;
+                                    ataque1 = masataque + critico;
                                 }
                             } else {
                                 ataque1 = ata1 - def2 + masataque;
@@ -204,7 +204,7 @@ public class Tema2ejercicio_combate {
                                 if (ataque2 < 0) {
                                     ataque2 = masataque;
                                     System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
-                                    ataque2 = ata2 - def1 + masataque + critico;
+                                    ataque2 = masataque + critico;
                                 }
                             } else {
                                 ataque2 = ata1 - def2 + masataque;
