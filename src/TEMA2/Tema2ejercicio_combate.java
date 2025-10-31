@@ -13,14 +13,14 @@ public class Tema2ejercicio_combate {
         int ata1 = 0;
         int def1 = 0;
         int vida1 = 0;
-        int vidamax1 = 0;
+        int vidamax1;
         int ataque1 = 0;
 //estadisticas jugador2
         int vel2 = 0;
         int ata2 = 0;
         int def2 = 0;
         int vida2 = 0;
-        int vidamax2 = 0;
+        int vidamax2;
         int ataque2 = 0;
 //otras estadisticas
         Random random = new Random();
@@ -49,7 +49,7 @@ public class Tema2ejercicio_combate {
             case 1:
                 do {
                     System.out.println("--jugador1--");
-
+//Elecion de estadisticas
                     System.out.print("Introduce la velocidad del jugador1: ");
                     vel1 = sc.nextInt();
                     while (vel1 > 200 || vel1 < 1) {
@@ -88,86 +88,140 @@ public class Tema2ejercicio_combate {
                         System.out.println("te has pasado de 500 vuelve ha poner los valores");
                     }
                 } while (vel1 + ata1 + def1 + vida1 > 500);
-            break;
+                break;
             case 2:
                 System.out.println(" Jugador 1 ¿Que personaje quieres?");
                 System.out.println("1 GORVAK EL MURALLA \n" + "2 LIRA LA FÉRREA \n" + "3 KAEN EL RELÁMPAGO \n" + "4 SERIS EL EQUILIBRADO \n");
                 elegir = sc.nextInt();
+
                 switch (elegir) {
-                    case 1 :
+                    case 1:
                         vel1 = 60;
                         def1 = 200;
                         ata1 = 90;
                         vida1 = 150;
-                    break;
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("velocidad: " + vel1 + "\n" + "ataque: " + ata1 + "\n" + "defensa: " + def1 + "\n" + "vida: " + vida1);
+                        break;
                     case 2:
                         vel1 = 90;
                         def1 = 80;
                         ata1 = 200;
                         vida1 = 130;
-                    break;
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("velocidad: " + vel1 + "\n" + "ataque: " + ata1 + "\n" + "defensa: " + def1 + "\n" + "vida: " + vida1);
+                        break;
                     case 3:
                         vel1 = 200;
                         def1 = 70;
                         ata1 = 130;
                         vida1 = 100;
-                    break;
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("velocidad: " + vel1 + "\n" + "ataque: " + ata1 + "\n" + "defensa: " + def1 + "\n" + "vida: " + vida1);
+                        break;
                     case 4:
                         vel1 = 120;
                         def1 = 110;
                         ata1 = 130;
                         vida1 = 140;
-                }break;
-
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("velocidad: " + vel1 + "\n" + "ataque: " + ata1 + "\n" + "defensa: " + def1 + "\n" + "vida: " + vida1);
+                        break;
+                }
+                break;
         }
 
-        //Elecion de estadisticas
 
+        System.out.println(" Jugador 2 ¿Que quieres hacer?");
+        System.out.println("1 crear personaje \n" + "2 usar personaje \n");
+        elegir = sc.nextInt();
 
+        switch (elegir) {
+            case 1:
+                do {
+                    System.out.println("----------------------------------------------------");
+                    System.out.println("--jugador2--");
+//eleguir estadisticas
+                    System.out.print("Introduce la velocidad del jugador2: ");
+                    vel2 = sc.nextInt();
+                    while (vel2 > 200 || vel2 < 1) {
+                        System.out.println("la velocidad es inconrecta, vuelve a introducir el valor");
+                        System.out.print("Introduce la velocidad del jugador2: ");
+                        vel2 = sc.nextInt();
+                    }
 
-        do {
-            System.out.println("----------------------------------------------------");
-            System.out.println("--jugador2--");
+                    System.out.print("Introduce el ataque del jugador2: ");
+                    ata2 = sc.nextInt();
+                    while (ata2 > 200 || ata2 < 1) {
+                        System.out.println("El ataque es inconrecta, vuelve a introducir el valor");
+                        System.out.print("Introduce el ataque del jugador2: ");
+                        ata2 = sc.nextInt();
+                    }
 
-            System.out.print("Introduce la velocidad del jugador2: ");
-            vel2 = sc.nextInt();
-            while (vel2 > 200 || vel2 < 1) {
-                System.out.println("la velocidad es inconrecta, vuelve a introducir el valor");
-                System.out.print("Introduce la velocidad del jugador2: ");
-                vel2 = sc.nextInt();
-            }
+                    System.out.print("Introduce la defensa del jugador2: ");
+                    def2 = sc.nextInt();
+                    while (def2 > 200 || def2 < 1) {
+                        System.out.println("La defensa es inconrecta, vuelve a introducir el valor");
+                        System.out.print("Introduce la defensa del jugador2: ");
+                        def2 = sc.nextInt();
+                    }
 
-            System.out.print("Introduce el ataque del jugador2: ");
-            ata2 = sc.nextInt();
-            while (ata2 > 200 || ata2 < 1) {
-                System.out.println("El ataque es inconrecta, vuelve a introducir el valor");
-                System.out.print("Introduce el ataque del jugador2: ");
-                ata2 = sc.nextInt();
-            }
+                    System.out.print("Introduce la vida del jugador2: ");
+                    vida2 = sc.nextInt();
+                    while (vida2 > 200 || vida2 < 1) {
+                        System.out.println("La vida es inconrecta, vuelve a introducir el valor");
+                        System.out.print("Introduce la vida del jugador2: ");
+                        vida2 = sc.nextInt();
+                    }
 
-            System.out.print("Introduce la defensa del jugador2: ");
-            def2 = sc.nextInt();
-            while (def2 > 200 || def2 < 1) {
-                System.out.println("La defensa es inconrecta, vuelve a introducir el valor");
-                System.out.print("Introduce la defensa del jugador2: ");
-                def2 = sc.nextInt();
-            }
+                    System.out.println("----------------------------------------------------");
+                    System.out.println("velocidad: " + vel2 + "\n" + "ataque: " + ata2 + "\n" + "defensa: " + def2 + "\n" + "vida: " + vida2);
 
-            System.out.print("Introduce la vida del jugador2: ");
-            vida2 = sc.nextInt();
-            while (vida2 > 200 || vida2 < 1) {
-                System.out.println("La vida es inconrecta, vuelve a introducir el valor");
-                System.out.print("Introduce la vida del jugador2: ");
-                vida2 = sc.nextInt();
-            }
-
-            System.out.println("----------------------------------------------------");
-            System.out.println("velocidad: " + vel2 + "\n" + "ataque: " + ata2 + "\n" + "defensa: " + def2 + "\n" + "vida: " + vida2);
-
-            if (vel2 + ata2 + def2 + vida2 > 500) {
-                System.out.println("te has pasado de 500 vuelve ha poner los valores");
-            }
-        } while (vel2 + ata2 + def2 + vida2 > 500);
+                    if (vel2 + ata2 + def2 + vida2 > 500) {
+                        System.out.println("te has pasado de 500 vuelve ha poner los valores");
+                    }
+                } while (vel2 + ata2 + def2 + vida2 > 500);
+                break;
+            case 2:
+                System.out.println(" Jugador 2 ¿Que personaje quieres?");
+                System.out.println("1 GORVAK EL MURALLA \n" + "2 LIRA LA FÉRREA \n" + "3 KAEN EL RELÁMPAGO \n" + "4 SERIS EL EQUILIBRADO \n");
+                elegir = sc.nextInt();
+                switch (elegir) {
+                    case 1:
+                        vel2 = 60;
+                        def2 = 200;
+                        ata2 = 90;
+                        vida2 = 150;
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("velocidad: " + vel2 + "\n" + "ataque: " + ata2 + "\n" + "defensa: " + def2 + "\n" + "vida: " + vida2);
+                        break;
+                    case 2:
+                        vel2 = 90;
+                        def2 = 80;
+                        ata2 = 200;
+                        vida2 = 130;
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("velocidad: " + vel2 + "\n" + "ataque: " + ata2 + "\n" + "defensa: " + def2 + "\n" + "vida: " + vida2);
+                        break;
+                    case 3:
+                        vel2 = 200;
+                        def2 = 70;
+                        ata2 = 130;
+                        vida2 = 100;
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("velocidad: " + vel2 + "\n" + "ataque: " + ata2 + "\n" + "defensa: " + def2 + "\n" + "vida: " + vida2);
+                        break;
+                    case 4:
+                        vel2 = 120;
+                        def2 = 110;
+                        ata2 = 130;
+                        vida2 = 140;
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("velocidad: " + vel2 + "\n" + "ataque: " + ata2 + "\n" + "defensa: " + def2 + "\n" + "vida: " + vida2);
+                        break;
+                }
+                break;
+        }
         vidamax1 = vida1;
         vidamax2 = vida2;
 
@@ -179,65 +233,66 @@ public class Tema2ejercicio_combate {
                 ronda++;
                 System.out.println("------Ronda:" + ronda + "------");
 
+                System.out.println(" Jugador 1 ¿Que quieres hacer?");
+                System.out.println("1 Atacar \n" + "2 curarse \n");
+                elegir = sc.nextInt();
 
-
-                    System.out.println(" Jugador 1 ¿Que quieres hacer?");
-                    System.out.println("1 Atacar \n" + "2 curarse \n");
-                    elegir = sc.nextInt();
-
-                    switch (elegir) {
-                        //atacar
-                        case 1: {
+                switch (elegir) {
+                    //atacar
+                    case 1: {
+                        masataque = random.nextInt(10);
+                        critico = random.nextInt(100);
+                        esquive = random.nextInt(100);
+                        // si vel1/10 es mas alto que esquive, esquivas el ataque asi cuanto mayor sea tu velocidad tienes mayor posibilidad de esquivar
+                        if (vel2 / 10 > esquive) {
+                            ataque1 = 0;
+                            System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño porque el jugador 2 esquivo el ataque");
+                        }
+                        if (critico < 20 && vel1 / 10 < esquive) {
                             masataque = random.nextInt(10);
-                            critico = random.nextInt(100);
-                            esquive = random.nextInt(100);
-                            // si vel1/10 es mas alto que esquive, esquivas el ataque asi cuanto mayor sea tu velocidad tienes mayor posibilidad de esquivar
-                            if (vel2/10 > esquive){
-                                ataque1 = 0;
-                                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño porque el jugador 2 esquivo el ataque");
-                            }
-                            if (critico < 20 && vel1/10 < esquive) {
-                                masataque = random.nextInt(10);
 
-                                critico = ata1 / 4;
-                                ataque1 = ata1 - def2/2 + masataque;
-                                if (ataque1 < 0) {
-                                    ataque1 = masataque;
-                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
-                                    ataque1 = masataque + critico;
-                                }else {
-                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
-                                }
-                            } if (critico > 20 && vel1/10 < esquive){
-                                ataque1 = ata1 - def2/2 + masataque;
-                                if (ataque1 < 0) {
-                                    ataque1 = masataque;
-                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
-                                }else {
-                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
-                                }
-                            }
-
-                            vida2 = vida2 - ataque1;
-                            if (vida2 < 0) {
-                                vida2 = 0;
-                                System.out.println("Jugador1 gana");
-                            }
-                        }break;
-                        //curarse
-                        case 2: {
-                            if (vida1 == vidamax1) {
-                                System.out.println("No te puedes curar mas de tu vida maxima");
+                            critico = ata1 / 4;
+                            ataque1 = ata1 - def2 / 2 + masataque;
+                            if (ataque1 < 0) {
+                                ataque1 = masataque;
+                                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
+                                ataque1 = masataque + critico;
                             } else {
-                                curacion = random.nextInt(vida1 / 4)+1;
-                                vida1 = vida1 + curacion;
-                                System.out.println("El jugador 1 se cura " + curacion + " puntos de vida " + "\n");
+                                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
                             }
-                            if (vida1 > vidamax1) {
-                                vida1 = vidamax1;
+                        }
+                        if (critico > 20 && vel1 / 10 < esquive) {
+                            ataque1 = ata1 - def2 / 2 + masataque;
+                            if (ataque1 < 0) {
+                                ataque1 = masataque;
+                                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                            } else {
+                                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
                             }
-                        }break;
+                        }
+
+                        vida2 = vida2 - ataque1;
+                        if (vida2 < 0) {
+                            vida2 = 0;
+                            System.out.println("Jugador1 gana");
+                        }
                     }
+                    break;
+                    //curarse
+                    case 2: {
+                        if (vida1 == vidamax1) {
+                            System.out.println("No te puedes curar mas de tu vida maxima");
+                        } else {
+                            curacion = random.nextInt(vidamax1 / 4) + 1;
+                            vida1 = vida1 + curacion;
+                            System.out.println("El jugador 1 se cura " + curacion + " puntos de vida " + "\n");
+                        }
+                        if (vida1 > vidamax1) {
+                            vida1 = vidamax1;
+                        }
+                    }
+                    break;
+                }
 
 
                 if (vida2 > 0) {
@@ -253,26 +308,27 @@ public class Tema2ejercicio_combate {
                             critico = random.nextInt(100);
                             esquive = random.nextInt();
 
-                            if (vel1/10 > esquive){
+                            if (vel1 / 10 > esquive) {
                                 ataque2 = 0;
                                 System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño porque el jugador 1 esquivo el ataque");
                             }
-                            if (critico < 20 && vel2/10 < esquive) {
+                            if (critico < 20 && vel2 / 10 < esquive) {
                                 critico = ata2 / 4;
-                                ataque2 = ata2 - def1/2 + masataque;
+                                ataque2 = ata2 - def1 / 2 + masataque;
                                 if (ataque2 < 0) {
                                     ataque2 = masataque;
                                     System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
                                     ataque2 = masataque + critico;
-                                }else {
+                                } else {
                                     System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
                                 }
-                            } if (critico > 20 && vel2/10 < esquive) {
-                                ataque2 = ata2 - def1/2 + masataque;
+                            }
+                            if (critico > 20 && vel2 / 10 < esquive) {
+                                ataque2 = ata2 - def1 / 2 + masataque;
                                 if (ataque2 < 0) {
                                     ataque2 = masataque;
                                     System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
-                                }else {
+                                } else {
                                     System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
                                 }
                             }
@@ -282,19 +338,20 @@ public class Tema2ejercicio_combate {
                                 vida1 = 0;
                                 System.out.println("Jugador2 gana");
                             }
-                        break;
+                            break;
                         case 2: {
                             if (vida2 == vidamax2) {
                                 System.out.println("No te puedes curar mas de tu vida maxima");
                             } else {
-                                curacion = random.nextInt(vida2 / 4)+1;
+                                curacion = random.nextInt(vidamax2 / 4) + 1;
                                 vida2 = vida2 + curacion;
                                 System.out.println("El jugador 2 se cura " + curacion + " puntos de vida " + "\n");
                             }
                             if (vida2 > vidamax2) {
                                 vida2 = vidamax2;
                             }
-                        }break;
+                        }
+                        break;
                     }
                 }
 
@@ -335,41 +392,123 @@ public class Tema2ejercicio_combate {
                 ronda++;
                 System.out.println("------Ronda:" + ronda + "------");
 
-                if (vida2 > 0) {
-                    masataque = random.nextInt(10);
-                    critico = random.nextInt(100);
-                    if (critico < 20) {
-                        critico = ata2 / 4;
-                        ataque2 = ata2 - def1 + masataque;
-                        System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
-                        ataque2 = ata2 - def1 + masataque + critico;
-                    } else {
-                        ataque2 = ata2 - def1 + masataque;
-                        System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
-                    }
+                System.out.println(" Jugador 2 ¿Que quieres hacer?");
+                System.out.println("1 Atacar" + "\n" + "2 curarse" + "\n");
+                elegir = sc.nextInt();
 
-                    vida1 = vida1 - ataque2;
-                    if (vida1 < 0) {
-                        vida1 = 0;
+                switch (elegir) {
+
+                    case 1:
+                        masataque = random.nextInt(10);
+                        critico = random.nextInt(100);
+                        esquive = random.nextInt();
+
+                        if (vel1 / 10 > esquive) {
+                            ataque2 = 0;
+                            System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño porque el jugador 1 esquivo el ataque");
+                        }
+                        if (critico < 20 && vel2 / 10 < esquive) {
+                            critico = ata2 / 4;
+                            ataque2 = ata2 - def1 / 2 + masataque;
+                            if (ataque2 < 0) {
+                                ataque2 = masataque;
+                                System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
+                                ataque2 = masataque + critico;
+                            } else {
+                                System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
+                            }
+                        }
+                        if (critico > 20 && vel2 / 10 < esquive) {
+                            ataque2 = ata2 - def1 / 2 + masataque;
+                            if (ataque2 < 0) {
+                                ataque2 = masataque;
+                                System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+                            } else {
+                                System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+                            }
+                        }
+
+                        vida1 = vida1 - ataque2;
+                        if (vida1 < 0) {
+                            vida1 = 0;
+                            System.out.println("Jugador2 gana");
+                        }
+                        break;
+                    case 2: {
+                        if (vida2 == vidamax2) {
+                            System.out.println("No te puedes curar mas de tu vida maxima");
+                        } else {
+                            curacion = random.nextInt(vidamax2 / 4) + 1;
+                            vida2 = vida2 + curacion;
+                            System.out.println("El jugador 2 se cura " + curacion + " puntos de vida " + "\n");
+                        }
+                        if (vida2 > vidamax2) {
+                            vida2 = vidamax2;
+                        }
                     }
+                    break;
                 }
 
                 if (vida1 > 0) {
-                    masataque = random.nextInt(10);
-                    critico = random.nextInt(100);
-                    if (critico < 20) {
-                        critico = ata1 / 4;
-                        ataque1 = ata1 - def2 + masataque;
-                        System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
-                        ataque1 = ata1 - def2 + masataque + critico;
-                    } else {
-                        ataque1 = ata1 - def2 + masataque;
-                        System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño " + "\n");
-                    }
+                    System.out.println(" Jugador 1 ¿Que quieres hacer?");
+                    System.out.println("1 Atacar \n" + "2 curarse \n");
+                    elegir = sc.nextInt();
 
-                    vida2 = vida2 - ataque1;
-                    if (vida2 < 0) {
-                        vida2 = 0;
+                    switch (elegir) {
+                        //atacar
+                        case 1: {
+                            masataque = random.nextInt(10);
+                            critico = random.nextInt(100);
+                            esquive = random.nextInt(100);
+                            // si vel1/10 es mas alto que esquive, esquivas el ataque asi cuanto mayor sea tu velocidad tienes mayor posibilidad de esquivar
+                            if (vel2 / 10 > esquive) {
+                                ataque1 = 0;
+                                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño porque el jugador 2 esquivo el ataque");
+                            }
+                            if (critico < 20 && vel1 / 10 < esquive) {
+                                masataque = random.nextInt(10);
+
+                                critico = ata1 / 4;
+                                ataque1 = ata1 - def2 / 2 + masataque;
+                                if (ataque1 < 0) {
+                                    ataque1 = masataque;
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
+                                    ataque1 = masataque + critico;
+                                } else {
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
+                                }
+                            }
+                            if (critico > 20 && vel1 / 10 < esquive) {
+                                ataque1 = ata1 - def2 / 2 + masataque;
+                                if (ataque1 < 0) {
+                                    ataque1 = masataque;
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                                } else {
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                                }
+                            }
+
+                            vida2 = vida2 - ataque1;
+                            if (vida2 < 0) {
+                                vida2 = 0;
+                                System.out.println("Jugador1 gana");
+                            }
+                        }
+                        break;
+                        //curarse
+                        case 2: {
+                            if (vida1 == vidamax1) {
+                                System.out.println("No te puedes curar mas de tu vida maxima");
+                            } else {
+                                curacion = random.nextInt(vidamax1 / 4) + 1;
+                                vida1 = vida1 + curacion;
+                                System.out.println("El jugador 1 se cura " + curacion + " puntos de vida " + "\n");
+                            }
+                            if (vida1 > vidamax1) {
+                                vida1 = vidamax1;
+                            }
+                        }
+                        break;
                     }
                 }
 
@@ -412,32 +551,128 @@ public class Tema2ejercicio_combate {
                     ronda++;
                     System.out.println("------Ronda:" + ronda + "------");
 
-                    if (vida1 > 0) {
-                        masataque = random.nextInt(10);
-                        ataque1 = ata1 - def2 + masataque;
-                        vida2 = vida2 - ataque1;
-                        if (vida2 < 0) {
-                            vida2 = 0;
-                        }
-                    } else {
-                        ataque1 = 0;
-                    }
 
-                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                    System.out.println(" Jugador 1 ¿Que quieres hacer?");
+                    System.out.println("1 Atacar \n" + "2 curarse \n");
+                    elegir = sc.nextInt();
+
+                    switch (elegir) {
+                        //atacar
+                        case 1: {
+                            masataque = random.nextInt(10);
+                            critico = random.nextInt(100);
+                            esquive = random.nextInt(100);
+                            // si vel1/10 es mas alto que esquive, esquivas el ataque asi cuanto mayor sea tu velocidad tienes mayor posibilidad de esquivar
+                            if (vel2 / 10 > esquive) {
+                                ataque1 = 0;
+                                System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño porque el jugador 2 esquivo el ataque");
+                            }
+                            if (critico < 20 && vel1 / 10 < esquive) {
+                                masataque = random.nextInt(10);
+
+                                critico = ata1 / 4;
+                                ataque1 = ata1 - def2 / 2 + masataque;
+                                if (ataque1 < 0) {
+                                    ataque1 = masataque;
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
+                                    ataque1 = masataque + critico;
+                                } else {
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
+                                }
+                            }
+                            if (critico > 20 && vel1 / 10 < esquive) {
+                                ataque1 = ata1 - def2 / 2 + masataque;
+                                if (ataque1 < 0) {
+                                    ataque1 = masataque;
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                                } else {
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                                }
+                            }
+
+                            vida2 = vida2 - ataque1;
+                            if (vida2 < 0) {
+                                vida2 = 0;
+                                System.out.println("Jugador1 gana");
+                            }
+                        }
+                        break;
+                        //curarse
+                        case 2: {
+                            if (vida1 == vidamax1) {
+                                System.out.println("No te puedes curar mas de tu vida maxima");
+                            } else {
+                                curacion = random.nextInt(vidamax1 / 4) + 1;
+                                vida1 = vida1 + curacion;
+                                System.out.println("El jugador 1 se cura " + curacion + " puntos de vida " + "\n");
+                            }
+                            if (vida1 > vidamax1) {
+                                vida1 = vidamax1;
+                            }
+                        }
+                        break;
+                    }
 
 
                     if (vida2 > 0) {
-                        masataque = random.nextInt(10);
-                        ataque2 = ata1 - def2 + masataque;
-                        vida1 = vida1 - ataque2;
-                        if (vida1 < 0) {
-                            vida1 = 0;
-                        }
-                    } else {
-                        ataque2 = 0;
-                    }
 
-                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+                        System.out.println(" Jugador 2 ¿Que quieres hacer?");
+                        System.out.println("1 Atacar" + "\n" + "2 curarse" + "\n");
+                        elegir = sc.nextInt();
+
+                        switch (elegir) {
+
+                            case 1:
+                                masataque = random.nextInt(10);
+                                critico = random.nextInt(100);
+                                esquive = random.nextInt();
+
+                                if (vel1 / 10 > esquive) {
+                                    ataque2 = 0;
+                                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño porque el jugador 1 esquivo el ataque");
+                                }
+                                if (critico < 20 && vel2 / 10 < esquive) {
+                                    critico = ata2 / 4;
+                                    ataque2 = ata2 - def1 / 2 + masataque;
+                                    if (ataque2 < 0) {
+                                        ataque2 = masataque;
+                                        System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
+                                        ataque2 = masataque + critico;
+                                    } else {
+                                        System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
+                                    }
+                                }
+                                if (critico > 20 && vel2 / 10 < esquive) {
+                                    ataque2 = ata2 - def1 / 2 + masataque;
+                                    if (ataque2 < 0) {
+                                        ataque2 = masataque;
+                                        System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+                                    } else {
+                                        System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+                                    }
+                                }
+
+                                vida1 = vida1 - ataque2;
+                                if (vida1 < 0) {
+                                    vida1 = 0;
+                                    System.out.println("Jugador2 gana");
+                                }
+                                break;
+                            case 2: {
+                                if (vida2 == vidamax2) {
+                                    System.out.println("No te puedes curar mas de tu vida maxima");
+                                } else {
+                                    curacion = random.nextInt(vidamax2 / 4) + 1;
+                                    vida2 = vida2 + curacion;
+                                    System.out.println("El jugador 2 se cura " + curacion + " puntos de vida " + "\n");
+                                }
+                                if (vida2 > vidamax2) {
+                                    vida2 = vidamax2;
+                                }
+                            }
+                            break;
+                        }
+                    }
 
                     if (vida1 >= 0 || vida2 >= 0) {
                         totalBarras1 = vidamax1 / 10;
@@ -475,31 +710,125 @@ public class Tema2ejercicio_combate {
                     ronda++;
                     System.out.println("------Ronda:" + ronda + "------");
 
-                    if (vida2 > 0) {
-                        masataque = random.nextInt(10);
-                        ataque2 = ata1 - def2 + masataque;
-                        vida1 = vida1 - ataque2;
-                        if (vida1 < 0) {
-                            vida1 = 0;
-                        }
-                    } else {
-                        ataque2 = 0;
-                    }
+                    System.out.println(" Jugador 2 ¿Que quieres hacer?");
+                    System.out.println("1 Atacar" + "\n" + "2 curarse" + "\n");
+                    elegir = sc.nextInt();
 
-                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+                    switch (elegir) {
+
+                        case 1:
+                            masataque = random.nextInt(10);
+                            critico = random.nextInt(100);
+                            esquive = random.nextInt();
+
+                            if (vel1 / 10 > esquive) {
+                                ataque2 = 0;
+                                System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño porque el jugador 1 esquivo el ataque");
+                            }
+                            if (critico < 20 && vel2 / 10 < esquive) {
+                                critico = ata2 / 4;
+                                ataque2 = ata2 - def1 / 2 + masataque;
+                                if (ataque2 < 0) {
+                                    ataque2 = masataque;
+                                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
+                                    ataque2 = masataque + critico;
+                                } else {
+                                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño + " + critico + " de critico" + "\n");
+                                }
+                            }
+                            if (critico > 20 && vel2 / 10 < esquive) {
+                                ataque2 = ata2 - def1 / 2 + masataque;
+                                if (ataque2 < 0) {
+                                    ataque2 = masataque;
+                                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+                                } else {
+                                    System.out.println("El jugador 2 ataca y hace " + ataque2 + " de daño" + "\n");
+                                }
+                            }
+
+                            vida1 = vida1 - ataque2;
+                            if (vida1 < 0) {
+                                vida1 = 0;
+                                System.out.println("Jugador2 gana");
+                            }
+                            break;
+                        case 2: {
+                            if (vida2 == vidamax2) {
+                                System.out.println("No te puedes curar mas de tu vida maxima");
+                            } else {
+                                curacion = random.nextInt(vidamax2 / 4) + 1;
+                                vida2 = vida2 + curacion;
+                                System.out.println("El jugador 2 se cura " + curacion + " puntos de vida " + "\n");
+                            }
+                            if (vida2 > vidamax2) {
+                                vida2 = vidamax2;
+                            }
+                        }
+                        break;
+                    }
 
                     if (vida1 > 0) {
-                        masataque = random.nextInt(10);
-                        ataque1 = ata1 - def2 + masataque;
-                        vida2 = vida2 - ataque1;
-                        if (vida2 < 0) {
-                            vida2 = 0;
-                        }
-                    } else {
-                        ataque1 = 0;
-                    }
+                        System.out.println(" Jugador 1 ¿Que quieres hacer?");
+                        System.out.println("1 Atacar \n" + "2 curarse \n");
+                        elegir = sc.nextInt();
 
-                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                        switch (elegir) {
+                            //atacar
+                            case 1: {
+                                masataque = random.nextInt(10);
+                                critico = random.nextInt(100);
+                                esquive = random.nextInt(100);
+                                // si vel1/10 es mas alto que esquive, esquivas el ataque asi cuanto mayor sea tu velocidad tienes mayor posibilidad de esquivar
+                                if (vel2 / 10 > esquive) {
+                                    ataque1 = 0;
+                                    System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño porque el jugador 2 esquivo el ataque");
+                                }
+                                if (critico < 20 && vel1 / 10 < esquive) {
+                                    masataque = random.nextInt(10);
+
+                                    critico = ata1 / 4;
+                                    ataque1 = ata1 - def2 / 2 + masataque;
+                                    if (ataque1 < 0) {
+                                        ataque1 = masataque;
+                                        System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
+                                        ataque1 = masataque + critico;
+                                    } else {
+                                        System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño + " + critico + " de critico" + "\n");
+                                    }
+                                }
+                                if (critico > 20 && vel1 / 10 < esquive) {
+                                    ataque1 = ata1 - def2 / 2 + masataque;
+                                    if (ataque1 < 0) {
+                                        ataque1 = masataque;
+                                        System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                                    } else {
+                                        System.out.println("El jugador 1 ataca y hace " + ataque1 + " de daño" + "\n");
+                                    }
+                                }
+
+                                vida2 = vida2 - ataque1;
+                                if (vida2 < 0) {
+                                    vida2 = 0;
+                                    System.out.println("Jugador1 gana");
+                                }
+                            }
+                            break;
+                            //curarse
+                            case 2: {
+                                if (vida1 == vidamax1) {
+                                    System.out.println("No te puedes curar mas de tu vida maxima");
+                                } else {
+                                    curacion = random.nextInt(vidamax1 / 4) + 1;
+                                    vida1 = vida1 + curacion;
+                                    System.out.println("El jugador 1 se cura " + curacion + " puntos de vida " + "\n");
+                                }
+                                if (vida1 > vidamax1) {
+                                    vida1 = vidamax1;
+                                }
+                            }
+                            break;
+                        }
+                    }
 
                     if (vida2 >= 0 || vida1 >= 0) {
                         totalBarras1 = vidamax1 / 10;
