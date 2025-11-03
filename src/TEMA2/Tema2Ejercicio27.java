@@ -22,4 +22,4 @@ public class Tema2Ejercicio27 {
             num++;
         }
     }
-}
+} 
