@@ -5,16 +5,7 @@ import java.util.Scanner;
 public class Tema3Ejercicio10 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Elige una opcion \n" +
-                "a) Muestra el signo de un número introducido por el usuario.\n" +
-                "b) Indica si el usuario es mayor de edad o no.\n" +
-                "c) Calcula el área y perímetro de un círculo.\n" +
-                "d) Conversor de euros a dólares y de dólares a euros.\n" +
-                "e) Mostrar tabla de multiplicar de un número.\n" +
-                "f) Mostrar tablas de multiplicar del 1 al 10.\n" +
-                "g) Comprobador de números primos.\n" +
-                "h) Comprobador de fechas.\n" +
-                "i) Dibujar triángulos");
+        eleguir();
         char opcion = sc.next().charAt(0);
         switch (opcion) {
             case 'a':
@@ -37,5 +28,17 @@ public class Tema3Ejercicio10 {
                 Tema3Ejercicio9.main(args);
 
         }
+    }
+    public static void eleguir(){
+        System.out.println("Elige una opcion \n" +
+                "a) Muestra el signo de un número introducido por el usuario.\n" +
+                "b) Indica si el usuario es mayor de edad o no.\n" +
+                "c) Calcula el área y perímetro de un círculo.\n" +
+                "d) Conversor de euros a dólares y de dólares a euros.\n" +
+                "e) Mostrar tabla de multiplicar de un número.\n" +
+                "f) Mostrar tablas de multiplicar del 1 al 10.\n" +
+                "g) Comprobador de números primos.\n" +
+                "h) Comprobador de fechas.\n" +
+                "i) Dibujar triángulos");
     }
 }

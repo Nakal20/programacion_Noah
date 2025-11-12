@@ -20,7 +20,6 @@ public class Tema3Ejercicio7 {
         if (num <= 1) {
             System.out.println("no es primo");
         } else {
-            //cambiar el for
             for (int i = 2; i < num -1 ; i++) {
                 if (num % i == 0){
                     contador++;
