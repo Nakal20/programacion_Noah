@@ -10,26 +10,35 @@ public class Tema3Ejercicio10 {
         switch (opcion) {
             case 'a':
                 Tema3Ejercicio1.main(args);
+                break;
             case 'b':
                 Tema3Ejercicio2.main(args);
+                break;
             case 'c':
                 Tema3Ejercicio3.main(args);
+                break;
             case 'd':
                 Tema3Ejercicio4.main(args);
+                break;
             case 'e':
                 Tema3Ejercicio5.main(args);
+                break;
             case 'f':
                 Tema3Ejercicio6.main(args);
+                break;
             case 'g':
                 Tema3Ejercicio7.main(args);
+                break;
             case 'h':
                 Tema3Ejercicio8.main(args);
+                break;
             case 'i':
                 Tema3Ejercicio9.main(args);
 
         }
     }
-    public static void eleguir(){
+
+    public static void eleguir() {
         System.out.println("Elige una opcion \n" +
                 "a) Muestra el signo de un número introducido por el usuario.\n" +
                 "b) Indica si el usuario es mayor de edad o no.\n" +
