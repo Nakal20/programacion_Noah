@@ -34,7 +34,6 @@ public class Tema3Ejercicio10 {
                 break;
             case 'i':
                 Tema3Ejercicio9.main(args);
-
         }
     }
 
