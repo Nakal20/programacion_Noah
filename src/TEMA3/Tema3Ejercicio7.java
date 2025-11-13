@@ -7,18 +7,22 @@ public class Tema3Ejercicio7 {
         int contador;
         int num = 1;
         Scanner sc = new Scanner(System.in);
+        //pedir fuera el número
+        System.out.print("Ingrese el numero y te digo si es primo o no: ");
+        num = sc.nextInt();
         while (num != 0) {
-            System.out.print("Ingrese el numero y te digo si es primo o no: ");
-            num = sc.nextInt();
-            contador = numero(num);
+            contador = esPrimo(num);
             if (contador == 0) {
                 System.out.println("es primo");
             } else {
                 System.out.println("No es primo");
             }
+            System.out.print("Ingrese el numero y te digo si es primo o no: ");
+            num = sc.nextInt();
+            //volverlo a pedir ants de cerrar el while
         }
     }
-    public static int numero(int num) {
+    public static int esPrimo(int num) {
         int contador = 0;
         if (num == 0) {
             System.out.println("adios");

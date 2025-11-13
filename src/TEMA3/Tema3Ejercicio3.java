@@ -12,12 +12,12 @@ public class Tema3Ejercicio3 {
         boolean comprobar = validRadius(radius);
 
 
-        if (comprobar == false) {
+        if (!comprobar) {
             System.out.println("El radio no puede ser negativo");
         }else{
-            calculateCirclePerimeter(radius);
+            //calculateCirclePerimeter(radius);
             System.out.println(calculateCirclePerimeter(radius) + " Es el perimetro del circulo ");
-            calculateArea(radius);
+            //double resultado = calculateArea(radius);
             System.out.println(calculateArea(radius) + " Es el area del circulo ");
         }
 

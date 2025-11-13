@@ -2,23 +2,87 @@ package TEMA3;
 
 import java.util.Scanner;
 
+import static TEMA3.Tema3Ejercicio1.numbersing;
+import static TEMA3.Tema3Ejercicio2.isAdult;
+import static TEMA3.Tema3Ejercicio3.*;
+import static TEMA3.Tema3Ejercicio4.*;
+
 public class Tema3Ejercicio10 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int num;
+        int respuesta;
+        int radius;
         eleguir();
         char opcion = sc.next().charAt(0);
         switch (opcion) {
             case 'a':
-                Tema3Ejercicio1.main(args);
+                System.out.println("Dime un numero");
+                num = sc.nextInt();
+                respuesta = numbersing(num);
+                if (respuesta == 1){
+                    System.out.println("Es positivo");
+                }
+                else if (respuesta == -1){
+                    System.out.println("Es negativo");
+                }else{
+                    System.out.println("es 0");
+                }
                 break;
             case 'b':
-                Tema3Ejercicio2.main(args);
+                System.out.println("Dime un numero");
+                num = sc.nextInt();
+                respuesta = numbersing(num);
+                if (respuesta == 1){
+                    System.out.println("Es positivo \n");
+                }
+                else if (respuesta == -1){
+                    System.out.println("Es negativo \n");
+                }else{
+                    System.out.println("es 0 \n");
+                }
+
+                int age;
+                System.out.println("Dime un numero");
+                age = sc.nextInt();
+
+                boolean respuesta2 = isAdult(age);
+                if (respuesta2 == true) {
+                    System.out.println("Es mayor");
+                }else{
+                    System.out.println("Es menor");
+                }
                 break;
             case 'c':
-                Tema3Ejercicio3.main(args);
+                System.out.println("Dime el radio del circulo");
+                radius = sc.nextInt();
+
+                boolean comprobar = validRadius(radius);
+
+                if (!comprobar) {
+                    System.out.println("El radio no puede ser negativo");
+                }else{
+                    //calculateCirclePerimeter(radius);
+                    System.out.println(calculateCirclePerimeter(radius) + " Es el perimetro del circulo ");
+                    //double resultado = calculateArea(radius);
+                    System.out.println(calculateArea(radius) + " Es el area del circulo ");
+                }
                 break;
             case 'd':
-                Tema3Ejercicio4.main(args);
+                int elegir;
+                showMenu();
+                elegir = sc.nextInt();
+                switch (elegir){
+                    case 1:
+
+                        double dolares = euro2dolar();
+                        System.out.println("Son " + dolares + "$");
+                        break;
+                    case 2:
+                        double euros = dolar2Euro();
+                        System.out.println("Son " + euros + "€");
+
+                }
                 break;
             case 'e':
                 Tema3Ejercicio5.main(args);

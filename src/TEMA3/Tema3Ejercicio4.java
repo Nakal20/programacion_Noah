@@ -10,10 +10,13 @@ public class Tema3Ejercicio4 {
         elegir = sc.nextInt();
         switch (elegir){
             case 1:
-                euro2dolar();
+
+                double dolares = euro2dolar();
+                System.out.println("Son " + dolares + "$");
                 break;
             case 2:
-                dolar2Euro();
+               double euros = dolar2Euro();
+                System.out.println("Son " + euros + "€");
 
         }
 
@@ -29,7 +32,7 @@ public class Tema3Ejercicio4 {
         System.out.println("Cuantos euros quieres pasar a dolar?");
         euros = sc.nextDouble();
         dolares = euros * 1.16;
-        System.out.println("Son " + dolares + "$");
+        //System.out.println("Son " + dolares + "$");
         return dolares;
     }
     public static double dolar2Euro() {
@@ -39,7 +42,7 @@ public class Tema3Ejercicio4 {
         System.out.println("Cuantos euros quieres pasar a dolar?");
         dolares = sc.nextDouble();
         euros = dolares * 0.86;
-        System.out.println("Son " + euros + "€");
+        //System.out.println("Son " + euros + "€");
         return euros;
     }
 }

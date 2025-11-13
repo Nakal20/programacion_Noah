@@ -2,23 +2,19 @@ package TEMA3;
 
 public class Tema3Ejercicio6 {
     public static void main(String[] args) {
-        int num = 0;
-        numero(num);
+        //int num = 0;
+        numero();
     }
-    public static void numero(int num) {
 
-        while (num < 10) {
+    public static void numero() {
+        //TODO: for
+        int num = 1;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 1; j < 11; j++) {
+                System.out.println(num + " * " + j + " = " + (num * j));
+            }
+            System.out.println("\n");
             num++;
-            System.out.println(num + " * 1 = " + num * 1);
-            System.out.println(num + " * 2 = " + num * 2);
-            System.out.println(num + " * 3 = " + num * 3);
-            System.out.println(num + " * 4 = " + num * 4);
-            System.out.println(num + " * 5 = " + num * 5);
-            System.out.println(num + " * 6 = " + num * 6);
-            System.out.println(num + " * 7 = " + num * 7);
-            System.out.println(num + " * 8 = " + num * 8);
-            System.out.println(num + " * 9 = " + num * 9);
-            System.out.println(num + " * 10 = " + num * 10 + "\n");
         }
     }
 }
