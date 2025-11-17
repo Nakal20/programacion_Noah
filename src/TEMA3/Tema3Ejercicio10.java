@@ -6,6 +6,12 @@ import static TEMA3.Tema3Ejercicio1.numbersing;
 import static TEMA3.Tema3Ejercicio2.isAdult;
 import static TEMA3.Tema3Ejercicio3.*;
 import static TEMA3.Tema3Ejercicio4.*;
+import static TEMA3.Tema3Ejercicio5.tablaMultiplicar;
+import static TEMA3.Tema3Ejercicio6.numero;
+import static TEMA3.Tema3Ejercicio7.esPrimo;
+import static TEMA3.Tema3Ejercicio8.dia;
+import static TEMA3.Tema3Ejercicio8.mes;
+import static TEMA3.Tema3Ejercicio9.piramides;
 
 public class Tema3Ejercicio10 {
     public static void main(String[] args) {
@@ -85,19 +91,63 @@ public class Tema3Ejercicio10 {
                 }
                 break;
             case 'e':
-                Tema3Ejercicio5.main(args);
+                System.out.println("Dime que numero de 1 a 10 que quieres multiplicar?");
+                num = sc.nextInt();
+                while (num <= 0 || num > 10) {
+                    System.out.println("Numero invalido");
+                    System.out.println("Dime que numero que quieres multiplicar?");
+                    num = sc.nextInt();
+                }
+                tablaMultiplicar(num);
                 break;
             case 'f':
-                Tema3Ejercicio6.main(args);
+                numero();
                 break;
             case 'g':
-                Tema3Ejercicio7.main(args);
+                System.out.print("Ingrese el numero y te digo si es primo o no: ");
+                num = sc.nextInt();
+                while (num != 0) {
+                    int contador = esPrimo(num);
+                    if (contador == 0) {
+                        System.out.println("es primo");
+                    } else {
+                        System.out.println("No es primo");
+                    }
+                    System.out.print("Ingrese el numero y te digo si es primo o no: ");
+                    num = sc.nextInt();
+                }
                 break;
             case 'h':
-                Tema3Ejercicio8.main(args);
+                int ano;
+                System.out.println("Dime un mes");
+                int mes = sc.nextInt();
+                boolean valor = false;
+                int comprobar2 = mes(mes);
+                if (comprobar2 == 0){
+                    System.out.println("El mes no es corecto ");
+                    valor = true;
+                }
+                System.out.println("Dime un año");
+                ano = sc.nextInt();
+                System.out.println("Dime un dia");
+                int dia = sc.nextInt();
+                comprobar2 = dia(dia, mes, ano);
+                if (comprobar2 == 1){
+                    System.out.println("El dia no es corecto ");
+                    valor = true;
+                }
+                if (valor == true){
+                    System.out.println("hay valores incorrectos");
+                }else {
+                    System.out.println(dia + "/" + mes + "/" + ano);
+                }
                 break;
             case 'i':
-                Tema3Ejercicio9.main(args);
+                System.out.println("dime el caracter que quieres");
+                char caracter = sc.next().charAt(0);
+                System.out.println("Dime cuantas lineas tiene");
+                int lineas = sc.nextInt();
+                piramides(caracter, lineas);
         }
     }
 
