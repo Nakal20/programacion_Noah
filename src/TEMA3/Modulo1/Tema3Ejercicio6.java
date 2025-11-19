@@ -1,4 +1,4 @@
-package TEMA3;
+package TEMA3.Modulo1;
 
 public class Tema3Ejercicio6 {
     public static void main(String[] args) {

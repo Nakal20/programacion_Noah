@@ -1,8 +1,8 @@
-package TEMA3;
+package TEMA3.Modulo1;
 
 import java.util.Scanner;
 
-import static TEMA3.Tema3Ejercicio1.numbersing;
+import static TEMA3.Modulo1.Tema3Ejercicio1.numbersing;
 
 public class Tema3Ejercicio2 {
     public static void main(String[] args) {

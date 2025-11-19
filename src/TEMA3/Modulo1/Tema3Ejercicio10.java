@@ -1,17 +1,17 @@
-package TEMA3;
+package TEMA3.Modulo1;
 
 import java.util.Scanner;
 
-import static TEMA3.Tema3Ejercicio1.numbersing;
-import static TEMA3.Tema3Ejercicio2.isAdult;
-import static TEMA3.Tema3Ejercicio3.*;
-import static TEMA3.Tema3Ejercicio4.*;
-import static TEMA3.Tema3Ejercicio5.tablaMultiplicar;
-import static TEMA3.Tema3Ejercicio6.numero;
-import static TEMA3.Tema3Ejercicio7.esPrimo;
-import static TEMA3.Tema3Ejercicio8.dia;
-import static TEMA3.Tema3Ejercicio8.mes;
-import static TEMA3.Tema3Ejercicio9.piramides;
+import static TEMA3.Modulo1.Tema3Ejercicio1.numbersing;
+import static TEMA3.Modulo1.Tema3Ejercicio2.isAdult;
+import static TEMA3.Modulo1.Tema3Ejercicio3.*;
+import static TEMA3.Modulo1.Tema3Ejercicio4.*;
+import static TEMA3.Modulo1.Tema3Ejercicio5.tablaMultiplicar;
+import static TEMA3.Modulo1.Tema3Ejercicio6.numero;
+import static TEMA3.Modulo1.Tema3Ejercicio7.esPrimo;
+import static TEMA3.Modulo1.Tema3Ejercicio8.dia;
+import static TEMA3.Modulo1.Tema3Ejercicio8.mes;
+import static TEMA3.Modulo1.Tema3Ejercicio9.piramides;
 
 public class Tema3Ejercicio10 {
     public static void main(String[] args) {
