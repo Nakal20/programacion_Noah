@@ -1,4 +1,4 @@
-package TEMA3.Modulo2;
+package Tema3;
 
 import java.util.Scanner;
 
@@ -23,12 +23,16 @@ public class MyMatch {
         int contador = 0;
         boolean primo;
         int pares = 0;
+        int factorial = 1;
+        int factorialRecusivo = 1;
 
         System.out.println("Dime que opcion que quieres \n" +
                 "a calcular area y perimetro \n" +
                 "b saber si es primo o no \n" +
                 "c el numero de digitos de un numero \n" +
-                "d calcular area y perimetro \n");
+                "d cantidad de digitos pares en un numero \n" +
+                "e calcular el factorial de un numero \n"+
+                "f calcular el factorial de un numero \n");
         opcion = sc.next().charAt(0);
 
         switch (opcion) {
@@ -82,10 +86,22 @@ public class MyMatch {
                 System.out.println("Dime un numero");
                 num = sc.nextInt();
 
-                int pares2 = CantidadDeDigitosPares(num,contador,pares);
-                int contador2 = CantidadDeDigitosPares(num,contador,pares);
-                System.out.println("Digitos pares: " + pares2 + " Digitos impares: " + contador2);
+                int pares2 = CantidadDeDigitosPares(num,pares);
+                System.out.println("Digitos pares: " + pares2);
+                break;
+            case 'e':
+                System.out.println("Dime un numero");
+                num = sc.nextInt();
 
+                int factorial2 = numFactorial(num,factorial);
+                System.out.println("El factorial de " + num + " es " + factorial2);
+                break;
+            case 'f':
+                System.out.println("Dime un numero");
+                num = sc.nextInt();
+
+                int factorialRecusivo2 = numFactorialRecursivo(num,factorialRecusivo,contador);
+                System.out.println("El factorial de " + num + " es " + factorialRecusivo2);
                 break;
         }
     }
@@ -164,32 +180,61 @@ public class MyMatch {
     }
 
     //ejercicio4
-    public static int CantidadDeDigitosPares(int num, int contador, int pares) {
-       /* int comprobar;
-        pares=num;
-        while (num>=10){
-            num=num/10;
-            contador++;
-        }
-        if (num != 0){
-            contador++;
-        } */
-
+    public static int CantidadDeDigitosPares(int num, int pares) {
         if (num == 0) {
             return 1;
         }
 
-        while (num > 0) {
+        while (num >= 0) {
             int digito = num % 10;
             if (digito % 2 == 0) {
                 pares++;
-            }else{
-                contador++;
+            }
+            if (digito == 0) {
+                pares++;
             }
             num = num / 10;
         }
-
-        return contador + pares;
+        return pares;
     }
+
+//ejercicio5
+public static int CantidadDeDigitosImpares(int num, int impares) {
+    if (num == 0) {
+        return 1;
+    }
+
+    while (num > 0) {
+        int digito = num % 10;
+        if (digito % 2 != 0) {
+            impares++;
+        }
+        num = num / 10;
+    }
+    return impares;
 }
-    
+
+    //ejercicio6
+    public static int numFactorial(int num, int factorial) {
+        for (int i = 1; i <= num; i++) {
+            factorial = factorial * i;
+        }
+        return factorial;
+    }
+
+    //ejercicio7
+    public static int numFactorialRecursivo(int num, int factorialRecusivo, int contador) {
+        if (num <= 1) {
+            return 1;
+        }
+
+        int i;
+        for (i = 2; factorialRecusivo < num; i++) {
+            factorialRecusivo = factorialRecusivo * i;
+        }
+        return i - 1 ;
+    }
+
+}
+
+
