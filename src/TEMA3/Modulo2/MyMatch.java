@@ -3,73 +3,156 @@ package TEMA3.Modulo2;
 import java.util.Scanner;
 
 public class MyMatch {
-    //TODO: metodos en minuscula
-    public static double squareArea(double lado) {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        //
+        double squarePerimeter = 0;
+        double squareArea = 0;
+        double rectanglePerimeter = 0;
+        double rectangleArea = 0;
+        double circlePerimeter = 0;
+        double circleArea = 0;
+        //
+        double lado;
+        double altura;
+        double base;
+        double radio;
+        //
+        char opcion;
+        int num;
+        int contador = 0;
+        boolean primo;
+        int pares = 0;
 
-        double squareArea = lado * lado;
+        System.out.println("Dime que opcion que quieres \n" +
+                "a calcular area y perimetro \n" +
+                "b saber si es primo o no \n" +
+                "c el numero de digitos de un numero \n" +
+                "d calcular area y perimetro \n");
+        opcion = sc.next().charAt(0);
 
-        return squareArea;
-        //return lado * lado;
+        switch (opcion) {
+            case 'a':
+                System.out.println("Dime un numero");
+                num = sc.nextInt();
+                primo = NoEsPrimo(num);
+                if (primo == true) {
+                    System.out.println("El numero " + num + " no es primo");
+                } else {
+                    System.out.println("EL " + EsPrimo(num) + " es primo");
+                }
+                break;
+            case 'b':
+                System.out.println("Dime que opcion que quieres \n" +
+                        "a el perímetro y el área de un círculo \n" +
+                        "b el perímetro y el área de un cuadrado \n" +
+                        "c el perímetro y el área de un rectángulo \n");
+                opcion = sc.next().charAt(0);
+                switch (opcion) {
+                    case 'a':
+                        System.out.println("Dime el lado");
+                        lado = sc.nextDouble();
+
+                        System.out.println("El area es " + SquareArea(squareArea, lado));
+                        System.out.println("El perimetro es " + SquarePerimeter(squarePerimeter, lado));
+                        break;
+                    case 'b':
+                        System.out.println("Dime la base y la altura");
+                        base = sc.nextDouble();
+                        altura = sc.nextDouble();
+
+                        System.out.println("El area es " + RectangleArea(rectangleArea, base, altura));
+                        System.out.println("El perimetro es " + RectanglePerimeter(rectanglePerimeter, base, altura));
+                        break;
+                    case 'c':
+                        System.out.println("Dime el radio");
+                        radio = sc.nextDouble();
+
+                        System.out.println("El area es " + CircleArea(circleArea, radio));
+                        System.out.println("El perimetro es " + CirclePerimeter(circlePerimeter, radio));
+                }
+                break;
+            case 'c':
+                System.out.println("Dime un numero");
+                num = sc.nextInt();
+
+                System.out.println("tiene " + CantidadDeDigitos(num, contador) + " digitos");
+                break;
+            case 'd':
+                System.out.println("Dime un numero");
+                num = sc.nextInt();
+
+                int pares2 = CantidadDeDigitosPares(num,contador,pares);
+                int contador2 = CantidadDeDigitosPares(num,contador,pares);
+                System.out.println("Digitos pares: " + pares2 + " Digitos impares: " + contador2);
+
+                break;
+        }
     }
-//TODO: quitar en todos la mayúscula, y la variable que pasas por parametro innecesariamente
-    public static double squarePerimeter(double lado) {
-        double squarePerimeter;
+
+    public static double SquareArea(double squareArea, double lado) {
+        squareArea = lado * lado;
+        return squareArea;
+    }
+
+    public static double SquarePerimeter(double squarePerimeter, double lado) {
         squarePerimeter = lado * 4;
         return squarePerimeter;
     }
 
-    public static double rectangleArea(double base, double altura) {
-        double rectangleArea;
+    public static double RectangleArea(double rectangleArea, double base, double altura) {
         rectangleArea = base * altura;
         return rectangleArea;
     }
 
-    public static double rectanglePerimeter(double base, double altura) {
-        double rectanglePerimeter;
+    public static double RectanglePerimeter(double rectanglePerimeter, double base, double altura) {
         rectanglePerimeter = 2 * (base * altura);
         return rectanglePerimeter;
     }
 
-    public static double circleArea(double radio) {
-        double circleArea;
+    public static double CircleArea(double circleArea, double radio) {
         circleArea = Math.PI * radio * radio;
         return circleArea;
     }
 
-    public static double circlePerimeter(double radio) {
-        double circlePerimeter;
+    public static double CirclePerimeter(double circlePerimeter, double radio) {
         circlePerimeter = 2 * Math.PI * radio;
         return circlePerimeter;
     }
 
     //ejercicio2
-    //TODO: devolver un booleano y revisar
-    public static boolean esPrimo(int num) {
+    public static int EsPrimo(int num) {
         boolean primo = false;
         if (num <= 1) {
             System.out.println("no es primo");
-            return false;
         } else {
             for (int i = 2; i < num - 1; i++) {
 
                 if (num % i == 0) {
                     primo = true;
-                    return false;
                 }
             }
         }
-        return true;
+        return num;
     }
 
-    //TODO: revisa y entender. Quitar mayúsculas
-    public static boolean noEsPrimo(int num) {
-        return !esPrimo(num);
+    public static boolean NoEsPrimo(int num) {
+        boolean primo = false;
+        if (num <= 1) {
+            System.out.println("no es primo");
+        } else {
+            for (int i = 2; i < num - 1; i++) {
+
+                if (num % i == 0) {
+                    primo = true;
+                }
+            }
+        }
+        return primo;
     }
 
     //ejercicio3
-    //TODO: contador debe ser local, no pasar por parámetro
-    public static int cantidadDeDigitos(int num) {
-        int contador=0;
+    public static int CantidadDeDigitos(int num, int contador) {
         while (num >= 10) {
             num = num / 10;
             contador++;
@@ -81,91 +164,32 @@ public class MyMatch {
     }
 
     //ejercicio4
-    public static int cantidadDeDigitosPares(int num) {
+    public static int CantidadDeDigitosPares(int num, int contador, int pares) {
+       /* int comprobar;
+        pares=num;
+        while (num>=10){
+            num=num/10;
+            contador++;
+        }
+        if (num != 0){
+            contador++;
+        } */
+
         if (num == 0) {
             return 1;
         }
-        int pares = 0;
+
         while (num > 0) {
             int digito = num % 10;
             if (digito % 2 == 0) {
                 pares++;
-            }
-            if (digito == 0) {
-                pares++;
-            }
-            num = num / 10;
-        }
-        return pares;
-    }
-
-    //ejercicio5
-    public static int CantidadDeDigitosImpares(int num){
-        int impares = 0;
-        if (num == 0) {
-            return 1;
-        }
-
-        while (num > 0) {
-            int digito = num % 10;
-            if (digito % 2 != 0) {
-                impares++;
+            }else{
+                contador++;
             }
             num = num / 10;
         }
-        return impares;
-    }
 
-    //ejercicio6
-    public static int numFactorial(int num) {
-        int factorial = 1;
-        factorial = num;
-        int resultado = num;
-        for (int i = 1; i < num; i++) {
-            factorial = factorial * (resultado - 1);
-            resultado --;
-        }
-        return factorial;
-    }
-
-    //ejercicio7
-    public static int numFactorialRecursivo(int num, int factorialRecusivo, int contador) {
-        if (num <= 1) {
-            return 1;
-        }
-        for (int i = 1; i <= num; i++) {
-            factorialRecusivo = factorialRecusivo* i;
-        }
-        return factorialRecusivo;
-    }
-
-    //ejercicio8
-    //TODO: revisar y cambiar
-    public static int ecuaciones(int a, int b, int c) {
-        int d = b*b-4*a*c;
-        if (d > 0) {
-            return 2;
-        }
-        else if (d < 0) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
-        //TODO: aqui dentro deberias comprobar si el Discriminante es >0, <0 o =0, y devolver 2, 1 o 0
-        /*
-        int discriminant = b*b-4*a*c
-        if(discriminant>0) return 2
-        else if( discri>0
-         */
-    }
-
-    //ejercicio9
-    public static int sumaDigitos(int num, int suma) {
-        while (num > 0) {
-            suma= suma + num % 10;
-            num = num / 10;
-        }
-        return suma;
+        return contador + pares;
     }
 }
+    
