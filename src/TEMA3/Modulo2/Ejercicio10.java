@@ -20,7 +20,6 @@ public class Ejercicio10 {
         int b;
         int c;
 
-
         System.out.println("Dime que opcion que quieres \n" +
                 "a calcular area y perimetro \n" +
                 "b saber si es primo o no \n" +
@@ -36,9 +35,8 @@ public class Ejercicio10 {
         switch (opcion) {
             case 'a':
                 System.out.println("Dime que opcion que quieres \n" +
-                        "a el perímetro y el área de un círculo \n" +
-                        "b el perímetro y el área de un cuadrado \n" +
-                        "c el perímetro y el área de un rectángulo \n");
+                        "a saber si un numero es primo \n" +
+                        "b saber si un numero no es primo \n");
                 opcion = sc.next().charAt(0);
                 switch (opcion) {
                     case 'a':
