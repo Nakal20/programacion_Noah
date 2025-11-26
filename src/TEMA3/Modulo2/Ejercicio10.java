@@ -1,5 +1,8 @@
+package TEMA3.Modulo2;
+
 import java.util.Scanner;
 
+import static TEMA3.Modulo2.MyMath.*;
 
 public class Ejercicio10 {
     public static void main(String[] args) {
@@ -12,12 +15,11 @@ public class Ejercicio10 {
         //
         char opcion;
         int num;
-        int contador = 0;
-        int factorialRecusivo = 1;
         int suma=0;
         int a;
         int b;
         int c;
+
 
         System.out.println("Dime que opcion que quieres \n" +
                 "a calcular area y perimetro \n" +
@@ -43,50 +45,75 @@ public class Ejercicio10 {
                         System.out.println("Dime el lado");
                         lado = sc.nextDouble();
 
+                        System.out.println("El area es " + squareArea(lado));
+                        System.out.println("El perimetro es " + squarePerimeter(lado));
                         break;
                     case 'b':
                         System.out.println("Dime la base y la altura");
                         base = sc.nextDouble();
                         altura = sc.nextDouble();
 
+                        System.out.println("El area es " + rectangleArea(base, altura));
+                        System.out.println("El perimetro es " + rectanglePerimeter(base, altura));
                         break;
                     case 'c':
                         System.out.println("Dime el radio");
                         radio = sc.nextDouble();
 
+                        System.out.println("El area es " + circleArea(radio));
+                        System.out.println("El perimetro es " + circlePerimeter(radio));
                 }
+                break;
+            case 'b':
+                System.out.println("Dime que opcion que quieres \n" +
+                        "a el perímetro y el área de un círculo \n" +
+                        "b el perímetro y el área de un cuadrado \n" +
+                        "c el perímetro y el área de un rectángulo \n");
+                opcion = sc.next().charAt(0);
+                switch (opcion) {
+                    case 'a':
+                        System.out.println("Dime un numero");
+                        num = sc.nextInt();
+
+                        System.out.println(esPrimo(num));
                         break;
                     case 'b':
                         System.out.println("Dime un numero");
                         num = sc.nextInt();
+
+                        System.out.println(noEsPrimo(num));
                 }
                 break;
             case 'c':
                 System.out.println("Dime un numero");
                 num = sc.nextInt();
 
+                System.out.println("tiene " + cantidadDeDigitos(num) + " digitos");
                 break;
             case 'd':
                 System.out.println("Dime un numero");
                 num = sc.nextInt();
 
+                System.out.println("Digitos pares: " + cantidadDeDigitosPares(num));
                 break;
             case 'e':
                 System.out.println("Dime un numero");
                 num = sc.nextInt();
 
+                System.out.println("Digitos impares: " + cantidadDeDigitosImpares(num));
                 break;
             case 'f':
                 System.out.println("Dime un numero");
                 num = sc.nextInt();
 
+                int factorial2 = numFactorial(num);
                 System.out.println("El factorial de " + num + " es " + factorial2);
                 break;
             case 'g':
                 System.out.println("Dime un numero");
                 num = sc.nextInt();
 
-                int factorialRecusivo2 = numFactorialRecursivo(num,factorialRecusivo,contador);
+                int factorialRecusivo2 = numFactorialRecursivo(num);
                 System.out.println("El factorial de " + num + " es " + factorialRecusivo2);
                 break;
             case 'h':
@@ -96,6 +123,8 @@ public class Ejercicio10 {
                 b = sc.nextInt();
                 System.out.println("Dime otro numero");
                 c = sc.nextInt();
+
+                System.out.println("tiene" + ecuaciones(a,b,c) + "opciones");
                 break;
             case 'i':
                 System.out.println("Dime un numero");
