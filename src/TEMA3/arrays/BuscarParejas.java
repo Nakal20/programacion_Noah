@@ -1,4 +1,4 @@
-package TEMA3.arrays;
+package Tema3.arrays;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -17,11 +17,12 @@ public class BuscarParejas {
         int cerdo = 9;
         int[] posiciones = new int[]{tigre, perro, gato, elefante, jirafa, ballena, pez, oso, pulpo, cerdo, tigre, perro, gato, elefante, jirafa, ballena, pez, oso, pulpo, cerdo};
 
-        String[] animales = {"tigre", "perro", "gato", "elefante", "jirafa", "ballena", "pez", "oso", "pulpo", "cerdo", "tigre", "perro", "gato", "elefante", "jirafa", "ballena", "pez", "oso", "pulpo", "cerdo"};
+        String[] animales = {"tigre ", "perro ", "gato ", "elefante ", "jirafa ", "ballena ", "pez ", "oso ", "pulpo ", "cerdo ", "tigre ", "perro ", "gato ", "elefante ", "jirafa ", "ballena ", "pez ", "oso ", "pulpo ", "cerdo "};
         Scanner sc = new Scanner(System.in);
         System.out.println("Estos son los animales");
         for (int i = 0; i < animales.length; i++) {
-            System.out.println(animales[i]);
+            System.out.print(animales[i]);
+            if ((i + 1) % 5 == 0) System.out.println();
         }
 
         Random random = new Random();
@@ -49,14 +50,16 @@ public class BuscarParejas {
         for (int i = 0; i < animales.length; i++) {
             if (visible[i]) {
                 System.out.print("[" + animales[i] + "] ");
+            } else if(i>9){
+                System.out.print("[" + (i + 1) + ":?] ");
             } else {
-                System.out.print("[" + i + ":???] ");
+                System.out.print("[" + (i + 1) + ":??] ");
             }
-            if ((i + 1) % 4 == 0) System.out.println();
+            if ((i + 1) % 5 == 0) System.out.println();
         }
 
-        System.out.println("Elige la primera posición (0-19): ");
-        int p1 = sc.nextInt();
+        System.out.println("Elige la primera posición (1-20): ");
+        int p1 = sc.nextInt() -1;
         if (p1 < 0 || p1 >= 20) {
             System.out.println("Posición inválida.");
             return false;
@@ -66,8 +69,8 @@ public class BuscarParejas {
             return false;
         }
 
-        System.out.println("Elige la segunda posición (0-19): ");
-        int p2 = sc.nextInt();
+        System.out.println("Elige la segunda posición (1-20): ");
+        int p2 = sc.nextInt() - 1;
         if (p2 < 0 || p2 >= 20) {
             System.out.println("Posición inválida.");
             return false;
@@ -82,8 +85,8 @@ public class BuscarParejas {
         }
 
         System.out.println("Has elegido: ");
-        System.out.println("Posición " + p1 + ": " + animales[p1]);
-        System.out.println("Posición " + p2 + ": " + animales[p2]);
+        System.out.println("Posición " + (p1 + 1) + ": " + animales[p1]);
+        System.out.println("Posición " + (p2 + 1) + ": " + animales[p2]);
 
         if (animales[p1].equals(animales[p2])) {
             System.out.println("¡Pareja encontrada!");
@@ -92,7 +95,7 @@ public class BuscarParejas {
             return true;
         } else {
             System.out.println("No coinciden... se ocultan otra vez");
-            for (int i = 0; i < 10; i++) System.out.println();
+            for (int i = 0; i < 5; i++) System.out.println();
             return false;
         }
     }
