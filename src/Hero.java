@@ -9,23 +9,136 @@ public class Hero {
     private int attack;
     private int defense;
 
+    public static final int levelDefecto = 20;
+    public static final int maxHealthDefecto = 100;
+    public static final int attackDefecto = 60;
+    public static final int defenseDefecto = 200;
+    public static final int experienceDefecto = 0;
 
     public Hero(){
         this.name = "Bille";
-        this.level = 20;
-        this.health = 50;
-        this.maxHealth = 100;
-        this.experience = 30;
-        this.attack = 60;
-        this.defense = 200;
+        this.level = levelDefecto;
+        this.maxHealth = maxHealthDefecto;
+        this.health = maxHealth;
+        this.experience = experienceDefecto;
+        this.attack = attackDefecto;
+        this.defense = defenseDefecto;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLevel(int level) {
+        if (level>=0 && level<100){
+            this.level = level;
+        }else {
+            this.level=levelDefecto;
+        }
+    }
+
+    public void setHealth(int health) {
+        if (health>=0 && health<100){
+            this.health = health;
+        }else {
+            this.health=maxHealthDefecto;
+        }
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
+    public void setExperience(int experience) {
+        if (experience>=0 && experience<=50){
+            this.experience = experience;
+        }else {
+            this.experience=experienceDefecto;
+        }
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+
     public int drinkPotion(){
-        return this.health = health + 10;
+       this.health = health + 10;
+       if (health >= maxHealth){
+           return this.health = maxHealth;
+       }else {
+           return this.health;
+       }
     }
 
     public int rest(){
-        return this.health = health + 50;
+        this.health = health + 50;
+        if (health >= maxHealth){
+            return this.health = maxHealth;
+        }else {
+            return this.health;
+        }
+    }
+    public void attack(Hero enemy) {
+        int damage = Math.max(this.attack - enemy.defense, 10);
+        System.out.println(damage);
+        enemy.health -= damage;
+
+        if (enemy.health < 0) {
+            enemy.health = 0;
+        }
+
+        this.experience += 10;
+
+        if (this.experience >= 50) {
+            this.experience -= 50;
+            levelUp();
+        }
+
+    }
+
+    public void levelUp(){
+        this.level = level + 1;
+        this.maxHealth = maxHealth + 5;
+        this.health = health + 5;
+        this.attack = attack + 1;
+        this.defense = defense +1;
+    }
+
+    public String toString() {
+        return "\n Nombre: " + name + "\n Nivel: " + level + "\n vida: " + health + "/" + maxHealth + "\n experiencia: " + experience + "\n ataque: " + attack + "\n defensa: " + defense;
     }
 
 }
