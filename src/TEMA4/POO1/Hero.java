@@ -9,21 +9,32 @@ public class Hero {
     private int attack;
     private int defense;
 
-    public static final int levelDefecto = 20;
-    public static final int maxHealthDefecto = 100;
-    public static final int attackDefecto = 60;
-    public static final int defenseDefecto = 200;
-    public static final int experienceDefecto = 0;
+    public static final int LEVEL_DEFECTO = 20;
+    public static final int MAXHEALTHDEFECTO = 100;
+    public static final int ATTACKDEFECTO = 60;
+    public static final int DEFENSEDEFECTO = 200;
+    public static final int EXPERIENCEDEFECTO = 0;
 
     public Hero(){
         this.name = "Bille";
-        this.level = levelDefecto;
-        this.maxHealth = maxHealthDefecto;
+        this.level = LEVEL_DEFECTO;
+        this.maxHealth = MAXHEALTHDEFECTO;
         this.health = maxHealth;
-        this.experience = experienceDefecto;
-        this.attack = attackDefecto;
-        this.defense = defenseDefecto;
+        this.experience = EXPERIENCEDEFECTO;
+        this.attack = ATTACKDEFECTO;
+        this.defense = DEFENSEDEFECTO;
     }
+
+    public Hero(String nombre, int level, int maxHealth, int experience, int attack, int defense, int health){
+        this.name = nombre;
+        this.level = level;
+        this.maxHealth = maxHealth;
+        this.experience = experience;
+        this.attack = attack;
+        this.defense = defense;
+        this.health = health;
+    }
+    //FALTA constructor con todos los parámetros
 
     public String getName() {
         return name;
@@ -62,7 +73,7 @@ public class Hero {
         if (level>=0 && level<100){
             this.level = level;
         }else {
-            this.level=levelDefecto;
+            this.level=LEVEL_DEFECTO;
         }
     }
 
@@ -70,7 +81,7 @@ public class Hero {
         if (health>=0 && health<100){
             this.health = health;
         }else {
-            this.health=maxHealthDefecto;
+            this.health=MAXHEALTHDEFECTO;
         }
     }
 
@@ -78,7 +89,7 @@ public class Hero {
         if (maxHealth>=0 && maxHealth<100){
             this.maxHealth = maxHealth;
         }else {
-            this.maxHealth=maxHealthDefecto;
+            this.maxHealth=MAXHEALTHDEFECTO;
         }
     }
 
@@ -86,7 +97,7 @@ public class Hero {
         if (experience>=0 && experience<=50){
             this.experience = experience;
         }else {
-            this.experience=experienceDefecto;
+            this.experience=EXPERIENCEDEFECTO;
         }
     }
 
@@ -94,7 +105,7 @@ public class Hero {
         if (attack>=0 && attack<1000){
             this.attack = attack;
         }else {
-            this.attack=attackDefecto;
+            this.attack=ATTACKDEFECTO;
         }
     }
 
@@ -102,7 +113,7 @@ public class Hero {
         if (defense>=0 && defense<1000){
             this.defense = defense;
         }else {
-            this.defense=defenseDefecto;
+            this.defense=DEFENSEDEFECTO;
         }
     }
 
