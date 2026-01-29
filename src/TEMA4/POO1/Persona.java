@@ -9,18 +9,12 @@ public class Persona {
     private String DNI;
     int edad;
 
-    private String nombre2;
-    private String apellido12;
-    private String apellido22;
-    private String DNI2;
-    int edad2;
-
     public static final int edadDefecto = 0;
     public static final int mayorDeEdad = 18;
     public static final int retiretAge = 65;
 
     public Persona() {
-        nombre = "Bielle";
+        this.nombre = "Bielle";
         apellido1 = "martinez";
         apellido2 = " martinez";
         edad = edadDefecto;
@@ -31,6 +25,14 @@ public class Persona {
     public Persona(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
+    }
+
+    //constructor con todo
+    public Persona(String nombre, int  edad, String apellido1, String apellido2 ) {
+        this.nombre = nombre;
+        apellido1 = "martinez";
+        apellido2 = " martinez";
+        edad = edadDefecto;
     }
 
     public String getnombre(){
@@ -51,26 +53,6 @@ public class Persona {
 
     public String getDNI(){
         return DNI;
-    }
-
-    public String getnombre2(){
-        return nombre2;
-    }
-
-    public String getApellido12(){
-        return apellido12;
-    }
-
-    public String getApellido22(){
-        return apellido22;
-    }
-
-    public int getedad2(){
-        return edad2;
-    }
-
-    public String getDNI2(){
-        return DNI2;
     }
 
     public void setNombre(String nombre) {
@@ -97,47 +79,21 @@ public class Persona {
         this.apellido2 = apellido2;
     }
 
-    public void setNombre2(String nombre2) {
-        this.nombre2 = nombre2;
-    }
-
-    public void setDNI2(String DNI2){
-        this.DNI2 = DNI2;
-    }
-
-    public void setApellido12(String apellido12){
-        this.apellido12 = apellido12;
-    }
-
-    public void setApellido22(String apellido22){
-        this.apellido22 = apellido22;
-    }
-
-    public void setEdad2(int edad2){
-        if (edad2>=0 && edad2<=100){
-            this.edad2 = edad2;
+    public int ageDifference(Persona p1){
+        if (p1.edad > this.edad) {
+            System.out.println("diferencia de edad ente la edad 1 y 2: " + edad + " - " + p1.edad + " = " + ageDifference(p1));
+            return edad - p1.edad;
         }else {
-            this.edad2=edadDefecto;
+            System.out.println("diferencia de edad ente la edad 1 y 2: " + edad + " - " + p1.edad + " = " + ageDifference(p1));
+            return p1.edad - edad;
         }
     }
 
-
-
-    public int ageDifference(int edad, int edad2){
-        if (edad2 > edad) {
-            System.out.println("diferencia de edad ente la edad 1 y 2: " + edad + " - " + edad2 + " = " + ageDifference(edad, edad2));
-            return edad - edad2;
-        }else {
-            System.out.println("diferencia de edad ente la edad 1 y 2: " + edad + " - " + edad2 + " = " + ageDifference(edad, edad2));
-            return  edad2 - edad;
-        }
+    public boolean isAdult(){
+        return this.edad >= mayorDeEdad;
     }
 
-    public boolean isAdult(int edad){
-        return edad >= mayorDeEdad;
-    }
-
-    public boolean isRetired(int edad){
+    public boolean isRetired(){
         return edad > retiretAge;
     }
 
@@ -159,17 +115,39 @@ public class Persona {
 
     }
 
+    //toString
+    //igual que el print, pero devuelve un String
+
+    public String toString(){
+        String resul="";
+        resul = resul + "\n Nombre: " + nombre + "\n Apellidos: " + apellido1 + " " + apellido2 + "\n Edad: " + edad + " años.\n";
+        resul = resul +  "Es adulto? ";
+        if(isAdult()){
+            resul = resul + "SI";
+        }else{
+            resul = resul + "NO";
+        }
+        resul = resul + "Es jubilado? " ;
+        if (isRetired()){
+            resul = resul + "SI";
+        }else{
+            resul = resul + "NO";
+        }
+        return resul;
+    }
+
+
     public void print(){
         System.out.println("\n Nombre: " + nombre + "\n Apellidos: " + apellido1 + " " + apellido2 + "\n Edad: " + edad + " años.\n");
 
         System.out.println("Es adulto? " );
-        if(isAdult(edad)){
+        if(isAdult()){
             System.out.println("SI");
         }else{
             System.out.println("NO");
         }
         System.out.println("Es jubilado? " );
-        if (isRetired(edad)){
+        if (isRetired()){
             System.out.println("SI");
         }else{
             System.out.println("NO");
