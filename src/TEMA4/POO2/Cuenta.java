@@ -6,8 +6,13 @@ public class Cuenta {
     private double pago;
 
     public Cuenta(){
-        this.ncuenta = "1234567890123456";
+        this.ncuenta = "2";
         this.saldo = 1000;
+    }
+
+    public Cuenta(String ncuenta,double saldo){
+        this.ncuenta = ncuenta;
+        this.saldo = saldo;
     }
 
     public String getNcuenta() {
@@ -34,11 +39,20 @@ public class Cuenta {
         this.pago = pago;
     }
 
-    public void abono(){
-        System.out.println(saldo);
-        System.out.println(pago);
-        this.saldo = saldo + pago;
-        System.out.println(saldo);
+
+    public void abono(double cantidad) {
+        saldo += cantidad;
+    }
+
+    public void recibo(double cantidad) {
+        saldo -= cantidad;
+    }
+
+    public boolean esMorosa() {
+        if (saldo < 0){
+            return true;
+        }
+        return false;
     }
 
     public void mostrarSaldo(){
