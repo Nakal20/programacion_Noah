@@ -54,11 +54,8 @@ public class Horda {
                     if (enemy.getHealth() == 0) {
                         enemigosVivos--;
                         System.out.println("Enemigo derrotado");
-                    }
-
-                    for (int j = 0; j < enemigosVivos; j++) {
-                        Hero enemigoAtacante = crearEnemigoDebil(hero);
-                        enemigoAtacante.attack(hero);
+                    }else {
+                        enemy.attack(hero);
                     }
                 }
             }
@@ -92,4 +89,3 @@ public class Horda {
         return enemy;
     }
 }
-
