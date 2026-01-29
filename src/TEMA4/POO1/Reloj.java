@@ -12,6 +12,18 @@ public class Reloj {
 
     boolean formato24;
 
+    public Reloj(){
+        this.hora = horaDefecto;
+        this.minuto = minutoDefecto;
+        this.segundo = segundoDefecto;
+    }
+
+    public Reloj(int h, int m, int s){
+        this.hora = h;
+        this.minuto = m;
+        this.segundo = s;
+    }
+
     public boolean isFormato24() {
         return formato24;
     }
@@ -69,12 +81,4 @@ public class Reloj {
         }
         return "";
     }
-
-    public Reloj(){
-        hora = horaDefecto;
-        minuto = minutoDefecto;
-        segundo = segundoDefecto;
-    }
 }
-
-
