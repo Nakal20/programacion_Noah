@@ -3,30 +3,37 @@ package TEMA4.POO2;
 import java.util.Scanner;
 
 public class mainPruebaCuenta {
+
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        int elegir;
+
         Persona[] personas = new Persona[10];
         int numPersonas = 0;
 
+        int elegir;
+
         do {
-            System.out.println("\n1. Crear persona");
+            System.out.println("\n---QUE QUIERES HACER---");
+            System.out.println("1. Crear persona");
             System.out.println("2. Crear cuenta");
             System.out.println("3. Mostrar persona");
             System.out.println("4. Abono");
             System.out.println("5. Pago recibo");
             System.out.println("6. Mostrar morosos");
             System.out.println("0. Salir");
-            elegir = sc.nextInt();
+
+            System.out.print("Opción: ");
+            elegir = Integer.parseInt(sc.nextLine());
 
             switch (elegir) {
                 default:{
                     System.out.println("opcion no valida");
-                }break;
+                }
 
                 case 0:{
-                    System.out.println("adios");
-                }break;
+                    System.out.println("adios, vuelve pronto");
+                }
 
                 case 1: {
                     System.out.print("DNI: ");
@@ -34,39 +41,67 @@ public class mainPruebaCuenta {
                 }break;
 
                 case 2: {
-                    Persona p = buscarPersona(personas, numPersonas, sc);
-                    if (p.crearCuenta(
-                            pedirTexto(sc, "Número de cuenta: "),
-                            pedirNumero(sc, "Saldo inicial: "))) {
-                        System.out.println("Cuenta creada");
+                    System.out.print("DNI: ");
+                    String dni = sc.nextLine();
+                    int pos = buscarPersona(personas, numPersonas, dni);
+
+                    if (pos != -1) {
+                        System.out.print("Número de cuenta: ");
+                        String nc = sc.nextLine();
+                        System.out.print("Saldo inicial: ");
+                        double saldo = Double.parseDouble(sc.nextLine());
+
+                        if (!personas[pos].crearCuenta(nc, saldo)) {
+                            System.out.println("Máximo de cuentas alcanzado");
+                        }
                     } else {
-                        System.out.println("No se pudo crear la cuenta");
+                        System.out.println("Persona no encontrada");
                     }
                 }break;
 
-                case 3:{
-                    buscarPersona(personas, numPersonas, sc).mostrarDatos();
+                case 3: {
+                    System.out.print("DNI: ");
+                    int pos = buscarPersona(personas, numPersonas, sc.nextLine());
+                    if (pos != -1) {
+                        personas[pos].mostrarDatos();
+                    } else {
+                        System.out.println("Persona no encontrada");
+                    }
                 }break;
 
-                case 4:{
-                    Persona p = buscarPersona(personas, numPersonas, sc);
-                    if (p.abono(
-                            pedirTexto(sc, "Cuenta: "),
-                            pedirNumero(sc, "Cantidad: "))) {
-                        System.out.println("Abono realizado");
+                case 4: {
+                    System.out.print("DNI: ");
+                    int pos = buscarPersona(personas, numPersonas, sc.nextLine());
+
+                    if (pos != -1) {
+                        System.out.print("Cuenta: ");
+                        String nc = sc.nextLine();
+                        System.out.print("Cantidad: ");
+                        double cant = Double.parseDouble(sc.nextLine());
+
+                        if (!personas[pos].abono(nc, cant)) {
+                            System.out.println("Cuenta no encontrada");
+                        }
                     } else {
-                        System.out.println("Cuenta no encontrada");
+                        System.out.println("Persona no encontrada");
                     }
                 }break;
 
                 case 5: {
-                    Persona p = buscarPersona(personas, numPersonas, sc);
-                    if (p.recibo(
-                            pedirTexto(sc, "Cuenta: "),
-                            pedirNumero(sc, "Cantidad: "))) {
-                        System.out.println("Pago realizado");
+                    System.out.print("DNI: ");
+                    int pos = buscarPersona(personas, numPersonas, sc.nextLine());
+
+                    if (pos != -1) {
+                        System.out.print("Cuenta: ");
+                        String nc = sc.nextLine();
+                        System.out.print("Cantidad: ");
+                        double cant = Double.parseDouble(sc.nextLine());
+
+                        if (!personas[pos].recibo(nc, cant)) {
+                            System.out.println("Cuenta no encontrada");
+                        }
                     } else {
-                        System.out.println("Cuenta no encontrada");
+                        System.out.println("Persona no encontrada");
                     }
                 }break;
 
@@ -79,30 +114,15 @@ public class mainPruebaCuenta {
                 }
             }
 
-        }while(elegir != 0);
-
+        } while (elegir != 0);
     }
 
-        private static Persona buscarPersona(Persona[] personas, int total, Scanner sc) {
-            System.out.print("DNI: ");
-            String dni = sc.nextLine();
-
-            for (int i = 0; i < total; i++) {
-                if (personas[i].getDNI().equals(dni)) {
-                    return personas[i];
-                }
+    private static int buscarPersona(Persona[] personas, int total, String dni) {
+        for (int i = 0; i < total; i++) {
+            if (personas[i].getDNI().equals(dni)) {
+                return i;
             }
-            System.out.println("Persona no encontrada");
-            return personas[0];
         }
-
-        private static String pedirTexto(Scanner sc, String msg) {
-            System.out.print(msg);
-            return sc.nextLine();
-        }
-
-        private static double pedirNumero(Scanner sc, String msg) {
-            System.out.print(msg);
-            return sc.nextDouble();
-        }
+        return -1;
     }
+}
