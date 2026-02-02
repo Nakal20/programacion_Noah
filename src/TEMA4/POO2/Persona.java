@@ -5,6 +5,15 @@ public class Persona {
     private Cuenta[] cuentas;
     private int contadorCuentas;
 
+    public String toString(){
+        String resul="";
+        resul = resul + "\n DNI: " + DNI;
+        for(int i=0; i<cuentas.length; i++){
+            resul = resul + cuentas[i].toString();
+        }
+        return resul;
+    }
+
     public Persona(){
         this.DNI = "12345678K";
         this.cuentas = new Cuenta[3];
@@ -25,32 +34,38 @@ public class Persona {
         this.DNI = DNI;
     }
 
+
+
     public boolean crearCuenta(String ncuenta, double saldo) {
+        boolean cuentaExiste = false;
         if (contadorCuentas < 3) {
-            cuentas[contadorCuentas++] = new Cuenta(ncuenta, saldo);
-            return true;
+            cuentas[contadorCuentas] = new Cuenta(ncuenta, saldo);
+            contadorCuentas++;
+            cuentaExiste = true;
         }
-        return false;
+        return cuentaExiste;
     }
 
     public boolean abono(String ncuenta, double pago) {
+        boolean abono = false;
         for (int i = 0; i < contadorCuentas; i++) {
             if (cuentas[i].getNcuenta().equals(ncuenta)) {
                 cuentas[i].abono(pago);
-                return true;
+                abono = true;
             }
         }
-        return false;
+        return abono;
     }
 
     public boolean recibo(String ncuenta, double cantidad) {
+        boolean recibo = false;
         for (int i = 0; i < contadorCuentas; i++) {
             if (cuentas[i].getNcuenta().equals(ncuenta)) {
                 cuentas[i].recibo(cantidad);
-                return true;
+                recibo = true;
             }
         }
-        return false;
+        return recibo;
     }
 
     public void mostrarDatos() {
@@ -62,11 +77,12 @@ public class Persona {
     }
 
     public boolean esMorosa() {
+        boolean esMorosa = false;
         for (int i = 0; i < contadorCuentas; i++) {
             if (cuentas[i].getSaldo() < 0) {
-                return true;
+                esMorosa = true;
             }
         }
-        return false;
+        return esMorosa;
     }
 }
