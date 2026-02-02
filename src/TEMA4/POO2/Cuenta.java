@@ -3,7 +3,6 @@ package TEMA4.POO2;
 public class Cuenta {
     private String ncuenta;
     private double saldo;
-    private double pago;
 
     public Cuenta(){
         this.ncuenta = "2";
@@ -23,9 +22,6 @@ public class Cuenta {
         return saldo;
     }
 
-    public double getPago() {
-        return pago;
-    }
 
     public void setNcuenta(String ncuenta) {
         this.ncuenta = ncuenta;
@@ -33,10 +29,6 @@ public class Cuenta {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
-    }
-
-    public void setPago(double pago) {
-        this.pago = pago;
     }
 
 
@@ -49,10 +41,13 @@ public class Cuenta {
     }
 
     public boolean esMorosa() {
+        boolean morosa;
         if (saldo < 0){
-            return true;
+           morosa = true;
+        }else{
+            morosa = false;
         }
-        return false;
+        return morosa;
     }
 
     public void mostrarSaldo(){
