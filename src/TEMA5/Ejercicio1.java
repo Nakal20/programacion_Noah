@@ -9,6 +9,7 @@ public class Ejercicio1 {
         Scanner sc = new Scanner(System.in);
         Set<String> productos = new HashSet<>();
         int opcion = 0;
+        String producto;
 
         while(opcion != 3) {
             menu();
@@ -16,7 +17,12 @@ public class Ejercicio1 {
             switch (opcion) {
                 case 1:
                     System.out.println("Que producto quieres añadir?");
-                    productos.add(sc.next());
+                    producto = sc.next();
+                    if (productos.contains(producto)) {
+                        System.out.println("El producto ya esta en la lista.");
+                    }else {
+                        productos.add(producto);
+                    }
 
                     break;
                 case 2:
@@ -33,11 +39,6 @@ public class Ejercicio1 {
                     break;
             }
         }
-
-
-
-
-
     }
     public static void menu(){
         System.out.println("--- lista de la compra ---\n");
