@@ -12,11 +12,12 @@ public class Ejercicio3 {
         String nombre;
         int edad;
         int opcion = 0;
+        int posicion;
 
         while(opcion != 3) {
             System.out.println("--- cola ---\n");
             System.out.println("Que quieres hacer?");
-            System.out.println("1 añadir usuario \n" + "2 eliminar usuario \n" + "3 salir \n");
+            System.out.println("1 añadir usuario \n" + "2 eliminar usuario \n" + "3 mostrar cola \n" + "4 salir \n");
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
@@ -32,11 +33,15 @@ public class Ejercicio3 {
                     break;
                 case 2:
                     System.out.println("Dime la posicion del usuario");
-                    usuarios.remove(sc.nextInt());
-                    System.out.println(usuarios.get(0) +  "");
-
+                    posicion = sc.nextInt();
+                    System.out.println(usuarios.get(posicion) +  "se ha ido de la cola");
+                    usuarios.remove(posicion);
                     break;
                 case 3:
+                    for (int i=0;i<usuarios.size();i++) {
+                        System.out.println("\n Posicion: " + i + "\n" + usuarios.get(i));
+                    }
+                case 4:
                     System.out.println("adios");
                     break;
             }
