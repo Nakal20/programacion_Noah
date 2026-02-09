@@ -1,4 +1,4 @@
-package TEMA5;
+package TEMA5.Colecciones;
 
 import java.util.HashSet;
 import java.util.Scanner;
@@ -21,7 +21,10 @@ public class Ejercicio1 {
                     if (productos.contains(producto)) {
                         System.out.println("El producto ya esta en la lista.");
                     }else {
-                        productos.add(producto);
+                        if(productos.add(producto))
+                            System.out.println("Producto añadido");
+                        else
+                            System.out.println("Producto no se ha añadido en la lista.");
                     }
 
                     break;
