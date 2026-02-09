@@ -1,4 +1,4 @@
-package TEMA5.Ejercicio4;
+package TEMA5.Colecciones.Ejercicio4;
 
 import java.util.HashSet;
 import java.util.Scanner;
@@ -23,12 +23,11 @@ public class Ejercicio4 {
                         System.out.println("El producto ya esta en la lista.");
                     }else {
                         productos.add(producto);
+                        System.out.println("El producto se a añadido a la lista.");
                     }
-
                     break;
                 case 2:
                     System.out.println(productos);
-
                     break;
                 case 3:
                     System.out.println("Que producto quieres añadir?");
@@ -40,9 +39,9 @@ public class Ejercicio4 {
                     }else {
                         System.out.println("El producto no esta en la lista.");
                     }
-                    productos.remove(producto);
                     break;
                 case  4:
+                    productos.removeAll(compra);
                     System.out.println(compra);
                     break;
                 case 5:
