@@ -16,7 +16,7 @@ public class Ciclomotores extends Vehiculo {
 
     public boolean carnet(int cilindrada){
         boolean carnet;
-        if(cilindrada >= 120){
+        if(cilindrada >= 125){
             carnet = true;
         }else {
             carnet = false;
