@@ -28,22 +28,17 @@ public class Ejercicio_B6 {
         }
     }
     public static boolean buscar (String texto, String patron){
+        boolean encontrado = false;
+        for (int i = 0; i <= texto.length() - patron.length(); i++) {
+            String sub = texto.substring(i, i + patron.length());
 
-        int n = texto.length();
-        int m = patron.length();
-
-        for (int i = 0; i <= n - m; i++) {
-
-            int j = 0;
-
-            // compara todos los caracteres
-            while (j < m && texto.charAt(i + j) == patron.charAt(j)) {
-                j++;
+            if (sub.equals(patron)) {
+                encontrado = true;
             }
-
-            if (j == m) {
-                return true;
-            }
+        }
+        return encontrado;
+    }
+}
         }
         return false;
     }
