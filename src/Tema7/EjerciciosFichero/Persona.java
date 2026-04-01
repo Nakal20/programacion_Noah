@@ -1,6 +1,8 @@
-package TEMA7.EjerciciosFichero;
+package Tema7.ejerciciosB.EjerciciosFichero;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable {
     String nombre;
     int edad;
 
