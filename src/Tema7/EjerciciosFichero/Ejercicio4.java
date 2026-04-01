@@ -1,34 +1,34 @@
-package TEMA7.EjerciciosFichero;
+package Tema7.ejerciciosB.EjerciciosFichero;
 
-import java.io.File;
-
-import java.nio.file.Files;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 
 public class Ejercicio4 {
-    static void main() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("dime el nombre: ");
+
+        System.out.println("Dime el nombre: ");
         String nombre = sc.nextLine();
-        System.out.println("dime la edad: ");
+
+        System.out.println("Dime la edad: ");
         int edad = sc.nextInt();
 
         Persona persona = new Persona(nombre, edad);
-        Path dir = Paths.get("/home/noabertau/IdeaProjects/programacion/src/TEMA7/EjerciciosFichero");
 
-        try{
-            File archivo1 = new File(dir.toFile(),"Persona.dat");
+        Path ruta = Paths.get("C:\\Users\\noah\\IdeaProjects\\Pruebas\\src\\Tema7\\ejerciciosB\\EjerciciosFichero\\persona.dat");
 
-            Files.write(
-                    archivo1.toPath(),
-                    (persona + "\n").getBytes(),
-                    StandardOpenOption.APPEND
-            );
-        }catch(Exception e){
-            System.out.println(e.getMessage());
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(
+                new FileOutputStream(ruta.toFile()))) {
+
+            oos.writeObject(persona);
+            System.out.println("Objeto guardado correctamente");
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
