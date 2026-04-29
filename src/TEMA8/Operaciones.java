@@ -61,9 +61,9 @@ public class Operaciones {
         return sentencia2;
     }
 
-    public void mascotaDeUnEstudianteEspecífico() {
+    public void mascotaDeUnEstudianteEspecifico(String persona) {
 
-        String sentencia3 = "SELECT Estudiante.nombre, Estudiante.apellido, Casa.nombre AS nombre_casa FROM Estudiante JOIN Casa ON Estudiante.id_casa = Casa.id_casa WHERE Casa.nombre = 'Gryffindor'";
+        String sentencia3 = "SELECT Estudiante.nombre, Estudiante.apellido, Mascota.nombre AS nombre_mascota FROM Estudiante LEFT JOIN Mascota ON Estudiante.id_estudiante = Mascota.id_estudiante WHERE Estudiante.nombre = '" + persona + "'";
 
         try(Connection con2 = DriverManager.getConnection(
                 "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
@@ -76,8 +76,8 @@ public class Operaciones {
             while(resultados.next()){
                 String nombre = resultados.getString("nombre");
                 String apellido = resultados.getString("apellido");
-                String nombre_casa = resultados.getString("nombre_casa");
-                System.out.println("Estudiantes: " + nombre + ", " + apellido + ", " + nombre_casa);
+                String nombre_mascota = resultados.getString("nombre_mascota");
+                System.out.println("Estudiantes: " + nombre + ", " + apellido + ", " + nombre_mascota);
             }
         }
         catch (SQLException e) {
@@ -86,9 +86,9 @@ public class Operaciones {
     }
 
 
-    public void estudiantesPorCasa() {
+    public void NumeroEstudiantesPorCasa() {
 
-        String sentencia3 = "SELECT Estudiante.nombre, Estudiante.apellido, Casa.nombre AS nombre_casa FROM Estudiante JOIN Casa ON Estudiante.id_casa = Casa.id_casa WHERE Casa.nombre = 'Gryffindor'";
+        String sentencia3 = "SELECT COUNT(Estudiante.id_estudiante) AS cantidad, Casa.nombre FROM Estudiante JOIN Casa ON Estudiante.id_casa = Casa.id_casa GROUP BY Casa.nombre;";
 
         try(Connection con2 = DriverManager.getConnection(
                 "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
@@ -99,10 +99,9 @@ public class Operaciones {
             ResultSet resultados = sentencia.executeQuery();
 
             while(resultados.next()){
-                String nombre = resultados.getString("nombre");
-                String apellido = resultados.getString("apellido");
-                String nombre_casa = resultados.getString("nombre_casa");
-                System.out.println("Estudiantes: " + nombre + ", " + apellido + ", " + nombre_casa);
+                String cantidad = resultados.getString("cantidad");
+                String nombre_casa = resultados.getString("nombre");
+                System.out.println("Estudiantes: " + cantidad + ", " + nombre_casa);
             }
         }
         catch (SQLException e) {
