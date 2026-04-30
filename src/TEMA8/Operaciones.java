@@ -109,4 +109,50 @@ public class Operaciones {
         }
     }
 
+    public void insertarAsignatura(int id, String  nombre2,String aula2,boolean esOblidatoria){
+        String sentencia4 = "INSERT INTO Asignatura (id_asignatura, nombre, aula, obligatoria) VALUES ('" + id + "', '" + nombre2 + "', '" + aula2 + "', '" + esOblidatoria + "')";
+        //opcion 2: PreparedStatement
+        try(Connection con2 = DriverManager.getConnection(
+                "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
+                "postgres",
+                "12345678");
+            PreparedStatement sentencia = con2.prepareStatement(sentencia4)){
+
+            //no hace falta meterlo en el try, porque se cierra automáticamente al cerrarse el PreparedStatement
+            int resultados = sentencia.executeUpdate();
+
+
+            if(resultados > 0){
+                System.out.println("Asignatura insertado exitosamente");
+            }else {
+                System.out.println("Asignatura insertado no exitosamente");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void modificarAsignatura(int id, String aula2){
+        String sentencia5 = "UPDATE Asignatura SET aula = '" + aula2 + "' WHERE id_asignatura = '" + id + "' ";
+        //opcion 2: PreparedStatement
+        try(Connection con2 = DriverManager.getConnection(
+                "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
+                "postgres",
+                "12345678");
+            PreparedStatement sentencia = con2.prepareStatement(sentencia5)){
+
+            //no hace falta meterlo en el try, porque se cierra automáticamente al cerrarse el PreparedStatement
+            int resultados = sentencia.executeUpdate();
+
+            if(resultados > 0){
+                System.out.println("Asignatura actualizada exitosamente");
+            }else {
+                System.out.println("Asignatura actualizada no exitosamente");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
