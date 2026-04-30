@@ -1,158 +1,82 @@
 package TEMA8;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class Operaciones {
+public class MainParte4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-    public List<Asignatura> obtenerAsignaturas() {
+        int opcion = 9;
+        while (opcion != 0) {
+            System.out.println("que quieres hacer?");
+            System.out.println("0. salir \n1. ver la lista de las asignaturas \n2. ver los estudiantes de una casa \n3. buscar la mascota por la persona \n4. ver el número de estudiantes por casa \n5. Insertar una nueva asignatura \n6. Modificar el aula de una asignatura ");
+            opcion = sc.nextInt();
 
-        List<Asignatura> listaAsignaturas = new ArrayList<>();
+            switch (opcion) {
+                case 1:
+                    System.out.println("\n 1");
 
-        String sql = "SELECT * FROM Asignatura";
+                    Operaciones op = new Operaciones();
 
-        try (Connection con = DriverManager.getConnection(
-                "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
-                "postgres",
-                "12345678");
-             PreparedStatement ps = con.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+                    List<Asignatura> asignaturas = op.obtenerAsignaturas();
 
-            while (rs.next()) {
+                    for (int i = 0; i < asignaturas.size(); i++) {
+                        System.out.println(asignaturas.get(i));
+                    }
+                    break;
+                case 2:
+                    System.out.println("\n 2");
 
-                Asignatura asignatura = new Asignatura();
-                asignatura.setIdAsignatura(rs.getInt("id_asignatura"));
-                asignatura.setNombre(rs.getString("nombre"));
-                asignatura.setAula(rs.getString("aula"));
+                    Operaciones b = new Operaciones();
+                    System.out.println("De que casa quieres hacer una consulta?");
+                    String casa = sc.nextLine();
+                    b.estudiantesPorCasa(casa);
+                    break;
+                case 3:
+                    System.out.println("\n 3");
 
-                listaAsignaturas.add(asignatura);
-            }
+                    Operaciones c = new Operaciones();
+                    System.out.println("De que persona quieres buscar su mascota?");
+                    String persona = sc.nextLine();
+                    c.mascotaDeUnEstudianteEspecifico(persona);
+                    break;
+                case 4:
+                    System.out.println("\n 4");
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+                    Operaciones d = new Operaciones();
+                    d.NumeroEstudiantesPorCasa();
+                    break;
+                case 5:
+                    System.out.println("\n 5");
+                    Operaciones e = new Operaciones();
+                    System.out.println("id de la asignatura");
+                    int id = sc.nextInt();
+                    System.out.println("nombre de la asignatura");
+                    String nombre2 = sc.next();
+                    sc.nextLine();
+                    System.out.println("aula de la asignatura");
+                    String aula2 = sc.nextLine();
+                    System.out.println("Es oblidatoria? true or false");
+                    boolean esOblidatoria = sc.nextBoolean();
+                    e.insertarAsignatura(id, nombre2, aula2, esOblidatoria);
+                    break;
+                case 6:
+                    System.out.println("\n 6");
+                    Operaciones f = new Operaciones();
+                    System.out.println("id de la asignatura");
+                    id = sc.nextInt();
+                    System.out.println("aula de la asignatura");
+                    aula2 = sc.nextLine();
+                    f.modificarAsignatura(id, aula2);
+                    break;
 
-        return listaAsignaturas;
-    }
 
-    public String estudiantesPorCasa(String casa) {
 
-        String sentencia2 = "SELECT Estudiante.nombre, Estudiante.apellido, Casa.nombre AS nombre_casa FROM Estudiante JOIN Casa ON Estudiante.id_casa = Casa.id_casa WHERE Casa.nombre = '" + casa + "'";
 
-        try(Connection con2 = DriverManager.getConnection(
-                "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
-                "postgres",
-                "12345678");
-            PreparedStatement sentencia = con2.prepareStatement(sentencia2)){
-
-            ResultSet resultados = sentencia.executeQuery();
-
-            while(resultados.next()){
-                String nombre = resultados.getString("nombre");
-                String apellido = resultados.getString("apellido");
-                String nombre_casa = resultados.getString("nombre_casa");
-                System.out.println("Estudiantes: " + nombre + ", " + apellido + ", " + nombre_casa);
-            }
-        }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return sentencia2;
-    }
-
-    public void mascotaDeUnEstudianteEspecifico(String persona) {
-
-        String sentencia3 = "SELECT Estudiante.nombre, Estudiante.apellido, Mascota.nombre AS nombre_mascota FROM Estudiante LEFT JOIN Mascota ON Estudiante.id_estudiante = Mascota.id_estudiante WHERE Estudiante.nombre = '" + persona + "'";
-
-        try(Connection con2 = DriverManager.getConnection(
-                "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
-                "postgres",
-                "12345678");
-            PreparedStatement sentencia = con2.prepareStatement(sentencia3)){
-
-            ResultSet resultados = sentencia.executeQuery();
-
-            while(resultados.next()){
-                String nombre = resultados.getString("nombre");
-                String apellido = resultados.getString("apellido");
-                String nombre_mascota = resultados.getString("nombre_mascota");
-                System.out.println("Estudiantes: " + nombre + ", " + apellido + ", " + nombre_mascota);
             }
         }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+        System.out.println("Saliendo...");
 
-
-    public void NumeroEstudiantesPorCasa() {
-
-        String sentencia3 = "SELECT COUNT(Estudiante.id_estudiante) AS cantidad, Casa.nombre FROM Estudiante JOIN Casa ON Estudiante.id_casa = Casa.id_casa GROUP BY Casa.nombre;";
-
-        try(Connection con2 = DriverManager.getConnection(
-                "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
-                "postgres",
-                "12345678");
-            PreparedStatement sentencia = con2.prepareStatement(sentencia3)){
-
-            ResultSet resultados = sentencia.executeQuery();
-
-            while(resultados.next()){
-                String cantidad = resultados.getString("cantidad");
-                String nombre_casa = resultados.getString("nombre");
-                System.out.println("Estudiantes: " + cantidad + ", " + nombre_casa);
-            }
-        }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void insertarAsignatura(int id, String  nombre2,String aula2,boolean esOblidatoria){
-        String sentencia4 = "INSERT INTO Asignatura (id_asignatura, nombre, aula, obligatoria) VALUES ('" + id + "', '" + nombre2 + "', '" + aula2 + "', '" + esOblidatoria + "')";
-        //opcion 2: PreparedStatement
-        try(Connection con2 = DriverManager.getConnection(
-                "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
-                "postgres",
-                "12345678");
-            PreparedStatement sentencia = con2.prepareStatement(sentencia4)){
-
-            //no hace falta meterlo en el try, porque se cierra automáticamente al cerrarse el PreparedStatement
-            int resultados = sentencia.executeUpdate();
-
-
-            if(resultados > 0){
-                System.out.println("Asignatura insertado exitosamente");
-            }else {
-                System.out.println("Asignatura insertado no exitosamente");
-            }
-        }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void modificarAsignatura(int id, String aula2){
-        String sentencia5 = "UPDATE Asignatura SET aula = '" + aula2 + "' WHERE id_asignatura = '" + id + "' ";
-        //opcion 2: PreparedStatement
-        try(Connection con2 = DriverManager.getConnection(
-                "jdbc:postgresql://ad-postgres.ckapai37ljqr.us-east-1.rds.amazonaws.com:5432/hogwarts",
-                "postgres",
-                "12345678");
-            PreparedStatement sentencia = con2.prepareStatement(sentencia5)){
-
-            //no hace falta meterlo en el try, porque se cierra automáticamente al cerrarse el PreparedStatement
-            int resultados = sentencia.executeUpdate();
-
-            if(resultados > 0){
-                System.out.println("Asignatura actualizada exitosamente");
-            }else {
-                System.out.println("Asignatura actualizada no exitosamente");
-            }
-        }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
