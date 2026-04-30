@@ -66,17 +66,21 @@ public class MainParte4 {
                     Operaciones f = new Operaciones();
                     System.out.println("id de la asignatura");
                     id = sc.nextInt();
-                    System.out.println("aula de la asignatura");
+                    System.out.println("nueva aula de la asignatura");
                     aula2 = sc.nextLine();
                     f.modificarAsignatura(id, aula2);
                     break;
-
-
-
-
+                case 7:
+                    System.out.println("\n 7");
+                    Operaciones g = new Operaciones();
+                    System.out.println("id de la asignatura para eliminar");
+                    id = sc.nextInt();
+                    g.eliminarAsignatura(id);
+                    break;
             }
         }
         System.out.println("Saliendo...");
 
     }
 }
+
