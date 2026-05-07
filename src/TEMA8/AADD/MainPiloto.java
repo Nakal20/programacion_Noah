@@ -14,6 +14,18 @@ public class MainPiloto {
 
             switch (opcion) {
                 case 1:
+                    PilotosCRUD a = new PilotosCRUD();
+                    System.out.println("id del piloto");
+                    int id = sc.nextInt();
+                    System.out.println("codigo del piloto");
+                    String code = sc.next();
+                    System.out.println("nombre del piloto");
+                    String nombre = sc.next();
+                    sc.nextLine();
+                    System.out.println("apellido del piloto");
+                    String apellido = sc.nextLine();
+                    System.out.println("");
+                    a.CreatePilot(id, nombre, apellido, esOblidatoria);
 
                     break;
                 case 2:
